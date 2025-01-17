@@ -1,38 +1,624 @@
-.App {
-  text-align: center;
+*{
+margin: 0;
+padding: 0;
+font-family: 'Forum', cursive;
+box-sizing: border-box;
+}
+body {
+  scroll-behavior: smooth;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+p{
+  color: #ababab;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* #background{
+width: 100%;
+height: 100vh;
+background-image: url(Images/back.jpeg);
+background-size: cover;
+background-position: center;
+} */
+
+body{
+  background-color: black;
+  /* background-image: url(Images/back5.jpg); */
+background-size: cover;
+background-position: center;
+}
+/*-----------------------------Navbar logo---------------------------*/
+.Navbar img{
+  width: 200px;
+ 
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/*-----------------------------Navbar-------------------------------*/
+
+.Navbar{
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-wrap: wrap;
+  margin: 10px 50px;
+}
+
+.Navbar ul li{
+  display: inline-block;
+  list-style: none;
+  margin: 10px 20px;
+}
+
+.Navbar ul li a{
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  position: relative;
+  font-family: 'Lalezar', cursive;
+}
+
+.Navbar ul li a::after{
+  content: '';
+  width: 0;
+  height: 3px;
+  background: rgb(203, 11, 11);
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  transition: 0.5s;
+}
+
+.Navbar ul li a:hover::after{
+  width: 70%;
+  border-radius: 10px;
+}
+
+
+/*-----------------------Header part-----------------------------*/
+
+.Header{
+  color: white;
+  margin-top: 10%;
+  font-size: 30px;
+  margin-left: 50px;
+  margin-right: 50px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.Header img{
+  width: 500pxpx;
+  height: 400px;
+  margin: 0 20px;
+  border-radius: 90px;
+  transition: transform 0.5s;
+}
+
+.Header img:hover{
+  transform: scale(1.2);
+  transition:  0.5s ease ;
+  box-shadow:0 10px 10px  gold;
+
+}
+
+.Header h1{
+  font-size: 60px;
+  margin-top: 20px;
+}
+
+
+.Header h1 span{
+  /* color: #CA1111; */
+  color: rgb(203, 11, 11);
+  font-family: 'Lalezar', cursive;
+}
+
+
+
+/*----------------------About------------------------ */
+
+.about h1{
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.about{
+  padding: 80px 0;
+  margin: 0 50px;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.row{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.col1{
+  flex-basis: 35%;
+
+}
+
+.col1 img{
+  width: auto;
+  border-radius: 15px;
+  height: 550px;
+}
+
+
+.col2{
+  flex-basis: 60%;
+}
+
+.subtitle{
+  font-size: 60px;
+  font-weight: 600;
+  color: white;
+  font-family: 'Lalezar', cursive;
+}
+
+.col2 p{
+  color: #ababab;
+}
+
+.tabtitles{
+  display: flex;
+  margin: 20px 0 40px;
+}
+
+.tablinks{
+  margin-right: 50px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.45s;
+}
+
+.tablinks:hover{
+  color: white;
+  transform: scale(1.15);
+  transition: 0.5s;
+}
+
+.tablinks::after{
+  content: '';
+  width: 0;
+  height: 3px;
+  background: rgb(203, 11, 11);
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  transition: 0.5s;
+}
+
+
+.tablinks.activelink::after{
+width: 50%;
+}
+
+
+.tabcontents{
+  color: #ababab;
+
+}
+.tabcontents ul li{
+  list-style: none;
+  margin: 10px 0;
+}
+
+.tabcontents ul li span{
+  color: rgb(203, 11, 11);
+  font-size: 14px;
+}
+
+
+.tabcontents{
+  display: none;
+}
+
+.tabcontents.activetab{
+  display: block;
+}
+
+
+
+/*--------------------------Services Part-----------------------------------*/
+
+.services{
+  padding: 30px 0;
+  margin: 0 50px;
+  color: white;
+
+}
+
+.serviceslist{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 40px;
+  margin-top: 50px;
+}
+
+.serviceslist div{
+  background: #262626;
+  padding: 40px;
+  font-size: 13px;
+  font-weight: 300;
+  border-radius: 10px;
+  transition: background 0.5s, transform 0.5s;
+}
+
+.serviceslist div i{
+  font-size: 50px;
+  margin-bottom: 30px;
+}
+
+.serviceslist div h2{
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.serviceslist div a{
+  text-decoration: none;
+  color: white;
+  font-size: 12px;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.serviceslist div:hover{
+  /* background: rgb(185, 157, 1); */
+  background: rgb(177, 23, 23);
+  transform: translateY(-10px);
+  color: black;
+}
+
+
+
+/*------------------------------Portfolio part--------------------------------*/
+
+
+.portfolio{
+  padding: 50px 0;
+  margin: 0 50px;
+}
+
+.worklist{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 40px;
+  margin-top: 50px;
+}
+
+.work{
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.work h3{
+  color: white;
+}
+
+.work img{
+  width: 100%;
+  border-radius: 10px;
+  display: block;
+  height: 500px;
+  transition: transform 0.5s;
+}
+
+
+.layer{
+  width: 100%;
+  height: 0;
+  background: linear-gradient(rgba(0,0,0,0.6),  rgb(177, 23, 23));
+  border-radius: 10px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 40px;
+  text-align: center;
+  font-size: 14px;
+  transition: height 0.5s;
+}
+
+.layer h3{
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.layer a{
+  margin-top: 20px;
+  color:  rgb(177, 23, 23);
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 60px;
+  background: #fff;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.work:hover img{
+  transform: scale(1.1);
+}
+
+.work:hover .layer{
+  height: 100%;
+}
+
+
+.btn{
+  display: block;
+  margin: 50px auto;
+  width: fit-content;
+  border: 1px solid  rgb(177, 23, 23);
+  padding: 14px 50px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: white;
+  transition: background 0.5s;
+}
+
+.btn:hover{
+  background:  rgb(177, 23, 23);
+}
+
+
+
+
+/*------------------------------Contact Part------------------------------*/
+
+.contact{
+  margin: 0 50px;
+}
+.contactleft{
+  flex-basis: 35%;
+}
+
+.contactright{
+  flex-basis: 60%;
+}
+
+.contactleft p{
+  margin-top: 30px;
+}
+
+
+.contactleft p i{
+  color:  rgb(177, 23, 23) ;
+  margin-right: 15px;
+  font-size: 25px;
+}
+
+.socialicons{
+  margin-top: 30px;
+}
+
+.socialicons a{
+  text-decoration: none;
+  font-size: 30px;
+  margin-right: 15px;
+  color: #ababab ;
+  display: inline-block;
+  transition: transform 0.5s;
+}
+
+.socialicons a:hover{
+  color:rgb(177, 23, 23);
+  transform: translateY(-5px);
+}
+
+.btn.btn2{
+  display: inline-block;
+  background: rgb(177, 23, 23);
+}
+
+.contactright form{
+  width: 100%;
+}
+
+form input, form textarea{
+  width: 100%;
+  border: 0;
+  outline: none;
+  background: #262626;
+  padding: 15px;
+  margin: 15px 0;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 6px;
+}
+
+form .btn2{
+  padding: 14px 60px;
+  font-size: 18px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+#msg{
+  color: #61b752;
+  margin-top: -40px;
+  display: block;
+}
+
+
+/*-----------------------------------Footer----------------------------------*/
+
+
+.copyright{
+  color: #ababab;
+  width: 100%;
+  text-align: center;
+  padding: 25px;
+  background: #262626;
+  font-weight: 300;
+  margin-top: 20px;
+}
+
+.Navbar i{
+  color: white;
+}
+
+
+
+/*-------------------------------CSS for small screen-----------------------------*/
+
+
+
+/* nav .nav-btn{
+  padding: 5px;
+  cursor: pointer;
+  background: rgb(177, 23, 23);
+  border: none;
+  outline: none;
+  color: white;
+  visibility: hidden;
+  opacity: 0;
+  font-size: 20px;
+}
+
+
+@media only screen and (max-width: 780px){
+  nav .nav-btn{
+    visibility: visible;
+    opacity: 1;
+
+
   }
-  to {
-    transform: rotate(360deg);
+
+
+  nav ul{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    background-color: rgb(177, 23, 23);
+    transition: 1s;
+  
   }
+
+  nav .responsive_nav{
+    transform: none;
+  }
+
+  nav .nav-close-btn{
+ position: absolute;
+ top: 10px;
+ right: 10px;
+}
+nav a{
+  font-size: 1.5rem;
+}
+} */
+
+
+
+
+ .nav-btn {
+  padding: 5px;
+  cursor: pointer;
+  background: rgb(177, 23, 23);
+  border: none;
+  outline: none;
+  color: white;
+  display: none;
+}
+
+
+@media only screen and (max-width: 600px){
+
+  .Header .pics{
+    display: none;
+  }
+
+
+  .Header {
+    margin-top: 50%;
+    font-size: 16px;
+  }
+
+  .Header h1{
+    font-size: 30px;
+  }
+
+  .nav-btn{
+    display: block;
+    font-size: 25px;
+  }
+
+  .Navbar ul{
+    background: rgb(177, 23, 23);
+    position: fixed;
+    top: 0;
+    right: -200px;
+    width: 200px;
+    height: 150vh;
+    padding-top: 50px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .Navbar ul li{
+    display: block;
+    margin: 25px;
+  }
+
+  .Navbar ul .nav-btn {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    cursor: pointer;
+  }
+
+  .subtitle{
+    font-size: 40px;
+  }
+
+  .about img{
+    flex-basis: 100%;
+  }
+
+   .col1{
+    flex-basis: 100%;
+    margin-bottom: 30px;
+  }
+
+  .col2{
+    flex-basis: 100%;
+    font-size: 14px;
+  }
+
+  .tablinks{
+    font-size: 16px;
+    margin-right: 20px;
+  }
+
+  .container img{
+    height: 50vh;
+  }
+
+  .contactleft, .contactright{
+    flex-basis: 100%;
+  }
+
+  .copyright{
+    font-size: 14px;
+  }
+
 }
