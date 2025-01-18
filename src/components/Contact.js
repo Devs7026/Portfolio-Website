@@ -17,7 +17,7 @@ const Contact = () => {
 
     const form = e.target;
     const scriptURL = 'https://script.google.com/macros/s/AKfycbyrxzTJss3YvnV3xOhJfQoSb6T6rgIjGN4B_pkJWjrxA7FUx7pvP8E0bTaRge9sZUuFtg/exec';
-    
+
     // Send data to Google Sheets using fetch
     fetch(scriptURL, { method: 'POST', body: new FormData(form) })
       .then((response) => {
@@ -25,7 +25,7 @@ const Contact = () => {
         setTimeout(() => {
           setMessage(""); // Clear message after 5 seconds
         }, 5000);
-        
+
         // Reset form after submission (optional)
         form.reset();
         setIsSubmitting(false); // Reset submitting state after form is submitted
@@ -56,9 +56,9 @@ const Contact = () => {
               <input type="text" name="Name" placeholder="Your Name" required />
               <input type="email" name="Email" placeholder="Your Email" required />
               <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
-              <button 
-                type="submit" 
-                className="btn btn2" 
+              <button
+                type="submit"
+                className="btn btn2"
                 disabled={isSubmitting} // Disable submit button while submitting
               >
                 {isSubmitting ? 'Submitting...' : 'Submit'}

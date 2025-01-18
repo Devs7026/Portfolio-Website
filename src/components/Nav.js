@@ -1,49 +1,3 @@
-// import React, { useRef } from 'react';
-// import image from '../Images/applogo.png';
-
-// const Nav = () => {
-//   // Using useRef to get reference to the sidemenu
-//   const sidemenuRef = useRef(null);
-
-//   // Function to open the side menu
-//   function openmenu() {
-//     if (sidemenuRef.current) {
-//       sidemenuRef.current.style.right = "0";
-//     }
-//   }
-
-//   // Function to close the side menu
-//   function closemenu() {
-//     if (sidemenuRef.current) {
-//       sidemenuRef.current.style.right = "-200px";
-//     }
-//   }
-
-//   return (
-//     <nav className="Navbar">
-//       <a className='Logo' href='/'>
-//         <img src={image} alt='logo' />
-//       </a>
-//       <ul id="sidemenu" ref={sidemenuRef}>
-//         <li><a href="#header">Home</a></li>
-//         <li><a href="#about">About</a></li>
-//         <li><a href="#services">Services</a></li>
-//         <li><a href="#portfolio">Portfolio</a></li>
-//         <li><a href="#contact">Contact</a></li>
-//         <button className="nav-btn nav-close-btn" onClick={closemenu}>
-//           <i className="fa-solid fa-xmark"></i>
-//         </button>
-//       </ul>
-//       <button className="nav-btn" onClick={openmenu}>
-//         <i className="fa-solid fa-bars"></i>
-//       </button>
-//     </nav>
-//   );
-// }
-
-// export default Nav;
-
-
 import React, { useRef } from 'react';
 import image from '../Images/applogo.png';
 
@@ -95,6 +49,9 @@ const Nav = () => {
 }
 
 export default Nav;
+
+
+
 
 
 

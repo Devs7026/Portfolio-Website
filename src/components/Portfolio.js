@@ -36,6 +36,7 @@ const Portfolio=() => {
 
             </div>
              <a href="/" className="btn">See More</a>
+             <h1 className="certi">Licenses & Certifications</h1>
         </div>
     </div>
   );
