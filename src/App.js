@@ -21,6 +21,7 @@ import img10 from './Images/certifications/img10.jpg';
 import img11 from './Images/certifications/img11.jpg';
 import img12 from './Images/certifications/img12.jpg';
 import img13 from './Images/certifications/img13.jpg';
+import img14 from './Images/certifications/img14.jpg'
 
 function App() {
   const slides= [
@@ -37,6 +38,7 @@ function App() {
     { url: img11 },
     { url: img12 },
     { url: img13 },
+    { url: img14}
    
   ];
 
