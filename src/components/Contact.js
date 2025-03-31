@@ -49,7 +49,7 @@ const Contact = () => {
               <a href="https://x.com/Dev2607x?t=il1cE-1OF6F_0GaDavYjEg&s=08 "><i className="fa-brands fa-twitter-square"></i></a>
               <a href="https://www.linkedin.com/in/dev-srijit-7a8353295"><i className="fa-brands fa-linkedin"></i></a>
             </div>
-            <a href="/" className="btn btn2">Download CV</a>
+            <a href="./Images/Resume.pdf"  download className="btn btn2">Download CV</a>
           </div>
           <div className="contactright">
             <form name="submit-to-google-sheet" onSubmit={handleSubmit}>

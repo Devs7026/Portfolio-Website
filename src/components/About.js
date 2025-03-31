@@ -43,7 +43,7 @@ const About = () => {
                         <div className="tabcontents" id="experience">
                             <ul>
                                 <li><span>2024 May-Jul</span><br></br>Cyber Security Intern at CISCO</li>
-                                <li><span>2023-present</span><br></br>Learning Web Development</li>
+                                <li><span>2023-present</span><br></br>Learning Web Development & AIML</li>
                             </ul>
                         </div>
                         <div className="tabcontents" id="education">
