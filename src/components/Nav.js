@@ -1,8 +1,29 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import image from '../Images/applogo.png';
 
 const Nav = () => {
   const sidemenuRef = useRef(null);
+  const [isScrolling, setIsScrolling] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      if (currentScrollY > lastScrollY) {
+        // Scrolling down
+        setIsScrolling(false);
+      } else {
+        // Scrolling up
+        setIsScrolling(true);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
 
   // Open menu function
   function openmenu() {
@@ -27,7 +48,7 @@ const Nav = () => {
   }
 
   return (
-    <nav className="Navbar">
+    <nav className={`Navbar ${isScrolling ? 'sticky' : ''}`}>
       <a className="Logo" href="/">
         <img src={image} alt="logo" />
       </a>

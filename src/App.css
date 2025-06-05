@@ -29,29 +29,49 @@ background-position: center;
 }
 /*-----------------------------Navbar logo---------------------------*/
 .Navbar img{
-  width: 200px;
- 
+  width: 150px;
+  height: auto;
 }
 
 /*-----------------------------Navbar-------------------------------*/
 
-.Navbar{
+.Navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out;
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 10px 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  margin: 10px 50px;
+  margin: 0;
+  box-sizing: border-box;
 }
 
+.Navbar.sticky {
+  transform: translateY(0);
+}
 
-.Navbar ul li{
-  display: inline-block;
+.Navbar:not(.sticky) {
+  transform: translateY(-100%);
+}
+
+.Navbar ul {
+  display: flex;
   list-style: none;
-  margin: 10px 20px;
-  
+  margin: 0;
+  padding: 0;
+  align-items: center;
 }
 
-.Navbar ul li a{
+.Navbar ul li {
+  margin: 0 20px;
+}
+
+.Navbar ul li a {
   color: white;
   text-decoration: none;
   font-size: 18px;
@@ -59,7 +79,7 @@ background-position: center;
   font-family: 'Lalezar', cursive;
 }
 
-.Navbar ul li a::after{
+.Navbar ul li a::after {
   content: '';
   width: 0;
   height: 3px;
@@ -70,7 +90,7 @@ background-position: center;
   transition: 0.5s;
 }
 
-.Navbar ul li a:hover::after{
+.Navbar ul li a:hover::after {
   width: 70%;
   border-radius: 10px;
 }
@@ -674,3 +694,12 @@ display: none;
 
 
 
+/* Email */
+.email a{
+  text-decoration: none;
+  color: #ababab;
+}
+
+.email a:hover {
+  color: red;
+}

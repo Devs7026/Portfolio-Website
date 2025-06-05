@@ -42,14 +42,14 @@ const Contact = () => {
         <div className="row">
           <div className="contactleft">
             <h1 className="subtitle">Connect:</h1>
-            <p><i className="fa-solid fa-envelope"></i> devsrijit260705@gmail.com</p>
+            <p className="email"><i className="fa-solid fa-envelope"></i><a href='mailto:devsrijit260705@gmail.com' >devsrijit260705@gmail.com</a> </p>
             <p><i className="fa-solid fa-phone"></i> +91 8088067470</p>
             <div className="socialicons">
               <a href="https://www.instagram.com/dev_o_o_2607?igsh=MXB0eTAwbWc1ZjY3OQ=="><i className="fa-brands fa-instagram"></i></a>
               <a href="https://x.com/Dev2607x?t=il1cE-1OF6F_0GaDavYjEg&s=08 "><i className="fa-brands fa-twitter-square"></i></a>
               <a href="https://www.linkedin.com/in/dev-srijit-7a8353295"><i className="fa-brands fa-linkedin"></i></a>
             </div>
-            <a href="./Images/Resume.pdf"  download className="btn btn2">Download CV</a>
+            <a href="./Images/Resume(Current).pdf"  download className="btn btn2">Download CV</a>
           </div>
           <div className="contactright">
             <form name="submit-to-google-sheet" onSubmit={handleSubmit}>

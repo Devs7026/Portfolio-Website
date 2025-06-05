@@ -1,0 +1,108 @@
+.Navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out;
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 10px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Navbar img {
+  width: 200px;
+}
+
+.Navbar ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.Navbar ul li {
+  margin: 0 20px;
+}
+
+.Navbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  position: relative;
+  font-family: 'Lalezar', cursive;
+}
+
+.Navbar ul li a::after {
+  content: '';
+  width: 0;
+  height: 3px;
+  background: rgb(203, 11, 11);
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  transition: 0.5s;
+}
+
+.Navbar ul li a:hover::after {
+  width: 70%;
+  border-radius: 10px;
+}
+
+.Navbar.sticky {
+  transform: translateY(0);
+}
+
+.Navbar:not(.sticky) {
+  transform: translateY(-100%);
+}
+
+.nav-btn {
+  display: none;
+  padding: 5px;
+  cursor: pointer;
+  background: rgb(177, 23, 23);
+  border: none;
+  outline: none;
+  color: white;
+}
+
+@media only screen and (max-width: 600px) {
+  .Navbar {
+    padding: 10px 20px;
+  }
+
+  .nav-btn {
+    display: block;
+    font-size: 25px;
+  }
+
+  .Navbar ul {
+    background: rgb(177, 23, 23);
+    position: fixed;
+    top: 0;
+    right: -200px;
+    width: 200px;
+    height: 150vh;
+    padding-top: 50px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: right 0.3s ease-in-out;
+  }
+
+  .Navbar ul li {
+    display: block;
+    margin: 25px;
+  }
+
+  .Navbar ul .nav-btn {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    cursor: pointer;
+  }
+} 
