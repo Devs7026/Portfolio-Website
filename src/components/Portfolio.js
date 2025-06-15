@@ -12,30 +12,30 @@ const Portfolio=() => {
                 <div className="work">
                   <img src={pic1} alt="randomimg"></img>
                   <div className="layer">
-                    <h3>Project under Work!</h3>
-                     <p>Project yet to be made.Work under progress</p>
-                     <a href="/"><i class="fa-solid fa-wrench"></i></a>
+                    <h3>HealthCare App</h3>
+                     <p>A simple diet tracking along with symptoms log that tells you what foods are potential triggers for particular chronic health conditions.</p>
+                     <a href="https://github.com/Devs7026/HealthCare.git"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                   </div>
                 </div>
                 <div className="work">
                   <img src={pic2} alt="randomimg"></img>
                   <div className="layer">
-                    <h3>Project under Work!</h3>
-                     <p>Project yet to be made.Work under progress</p>
-                     <a href="/"><i class="fa-solid fa-wrench"></i></a>
+                    <h3>Stock Price Predictor</h3>
+                     <p>Stock price predictor using LSTM to predict next day price.</p>
+                     <a href="https://github.com/Devs7026/AIML-Projects.git"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                   </div>
                 </div>
                 <div className="work">
                   <img src={pic3} alt="randomimg"></img>
                   <div className="layer">
-                    <h3>GitHub</h3>
-                     <p>Check out more of my Projects on GitHub</p>
-                     <a href="https://github.com/Devs7026"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    <h3>Student Database Management System</h3>
+                     <p>SDBMS using Django templates.</p>
+                     <a href="https://github.com/Devs7026/Mini-Project-DBS.git"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                   </div>
                 </div>
 
             </div>
-             <a href="/" className="btn">See More</a>
+             <a href="https://github.com/Devs7026" className="btn">See More</a>
              <h1 className="certi">Licenses & Certifications</h1>
         </div>
     </div>

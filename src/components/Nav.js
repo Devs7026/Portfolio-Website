@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import image from '../Images/applogo.png';
+import { GithubOutlined } from '@ant-design/icons';
 
 const Nav = () => {
   const sidemenuRef = useRef(null);
@@ -53,6 +54,7 @@ const Nav = () => {
         <img src={image} alt="logo" />
       </a>
       <ul id="sidemenu" ref={sidemenuRef}>
+         <li><a href="https://github.com/Devs7026"><GithubOutlined twoToneColor="#eb2f96" /></a></li> 
         <li><a href="#home" onClick={() => { scrollToSection('home'); closemenu(); }}>Home</a></li>
         <li><a href="#about" onClick={() => { scrollToSection('about'); closemenu(); }}>About</a></li>
         <li><a href="#services" onClick={() => { scrollToSection('services'); closemenu(); }}>Services</a></li>
