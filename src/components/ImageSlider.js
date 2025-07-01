@@ -14,7 +14,7 @@ const ImageSlider=({slides}) => {
         borderRadius: "10px",
         backgroundPosition: "center",
         // backgroundSize: "fit-content",
-        backgroundSize: "contain", // Or "cover" based on your preference
+        backgroundSize: "contain", 
     backgroundRepeat: "no-repeat", // Prevent image repetition
         backgroundImage: `url(${slides[currentIndex].url}) `,
     };
