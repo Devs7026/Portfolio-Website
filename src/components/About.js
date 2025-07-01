@@ -158,11 +158,11 @@ const About = () => {
               alt="About"
               style={{
                 width: "320px",
-                height: "320px",
+                height: "450px",
                 objectFit: "cover",
                 borderRadius: "1.5rem",
-                boxShadow: "0 6px 24px rgba(0,0,0,0.35)",
-                border: "4px solid #fff3"
+                boxShadow: "0 6px 24px black",
+                border: "4px"
               }}
             />
           </div>

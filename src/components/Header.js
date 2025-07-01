@@ -28,21 +28,20 @@ import cast from '../Images/user.jpg';
 
 const Header = () => {
   return (
-    <header className="Header" id="header">
+    <header className="Header" id="header" >
       <div>
         <p>FullStack/ UI/UX Developer</p>
         <h1>
           Hey, I'm{' '}
           <span>
             <ReactTyped
-              strings={["Dev Srijit"]}
-              typeSpeed={50}
-              backSpeed={30}
-              loop={false}
+              strings={["Dev Srijit","A Life Long Learner"]}
+              typeSpeed={60}
+              backSpeed={40}
+              loop={true}
             />
           </span>
         </h1>
-        <h1>From India</h1>
         <br />
         <p>- "Showcasing Creativity, Crafting Impact"</p>
         <p>Turning Ideas into Icons</p>
