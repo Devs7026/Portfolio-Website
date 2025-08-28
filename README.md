@@ -1,3 +1,8 @@
+# Check it Out!
+
+https://d3vportfolio.netlify.app/
+
+---
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -71,14 +76,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 
-## Project Preview
-
-![image](https://github.com/user-attachments/assets/6149a6a5-b6a7-4971-89c1-1a469845c53f)
-![image](https://github.com/user-attachments/assets/63e09e64-3731-49fb-988b-f7130653d75d)
-![image](https://github.com/user-attachments/assets/a14eb126-bc9d-4fec-8935-c8afd8e1cb26)
-![image](https://github.com/user-attachments/assets/e34e903a-9456-423a-afc1-7d321d7fbb8e)
-![image](https://github.com/user-attachments/assets/1ca216ac-1aa8-4ef0-9cd0-f835505560b1)
-![image](https://github.com/user-attachments/assets/aa845dce-f8ea-402e-b556-2f44e51117ce)
 
 
 
