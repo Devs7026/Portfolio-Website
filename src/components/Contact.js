@@ -1,38 +1,38 @@
 import React, { useState } from 'react';
 
 const Contact = () => {
-  // State to track form submission status
+  
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [message, setMessage] = useState(""); // State for the success message
+  const [message, setMessage] = useState(""); 
 
-  // Function to handle form submission
+ 
   const handleSubmit = (e) => {
-    e.preventDefault();  // Prevent default form submit behavior
+    e.preventDefault();  
 
     if (isSubmitting) {
-      return; // Prevent multiple submissions if already submitting
+      return; 
     }
 
-    setIsSubmitting(true); // Set submitting state to true
+    setIsSubmitting(true); 
 
     const form = e.target;
     const scriptURL = 'https://script.google.com/macros/s/AKfycbyrxzTJss3YvnV3xOhJfQoSb6T6rgIjGN4B_pkJWjrxA7FUx7pvP8E0bTaRge9sZUuFtg/exec';
 
-    // Send data to Google Sheets using fetch
+
     fetch(scriptURL, { method: 'POST', body: new FormData(form) })
       .then((response) => {
-        setMessage("Message sent successfully!"); // Set success message
+        setMessage("Message sent successfully!"); 
         setTimeout(() => {
-          setMessage(""); // Clear message after 5 seconds
+          setMessage(""); 
         }, 5000);
 
-        // Reset form after submission (optional)
+       
         form.reset();
-        setIsSubmitting(false); // Reset submitting state after form is submitted
+        setIsSubmitting(false); 
       })
       .catch((error) => {
         console.error('Error!', error.message);
-        setIsSubmitting(false); // Reset submitting state on error
+        setIsSubmitting(false); 
       });
   };
 
@@ -49,7 +49,7 @@ const Contact = () => {
               <a href="https://x.com/Dev2607x?t=il1cE-1OF6F_0GaDavYjEg&s=08 "><i className="fa-brands fa-twitter-square"></i></a>
               <a href="https://www.linkedin.com/in/dev-srijit-7a8353295"><i className="fa-brands fa-linkedin"></i></a>
             </div>
-            <a href="./Images/Resume(Current).pdf"  download className="btn btn2">Download Resume</a>
+            <a href="./Images/ResuME.pdf"  download className="btn btn2">Download Resume</a>
           </div>
           <div className="contactright">
             <form name="submit-to-google-sheet" onSubmit={handleSubmit}>
@@ -59,12 +59,11 @@ const Contact = () => {
               <button
                 type="submit"
                 className="btn btn2"
-                disabled={isSubmitting} // Disable submit button while submitting
+                disabled={isSubmitting} 
               >
                 {isSubmitting ? 'Submitting...' : 'Submit'}
               </button>
             </form>
-            {/* Display success message */}
             {message && <span id="msg">{message}</span>}
           </div>
         </div>

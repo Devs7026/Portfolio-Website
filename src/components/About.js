@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import pic from '../Images/Backgnd.jpeg';
 
-// Skill badges (array of {name, url})
+
 const skillBadges = [
   {
     name: "JavaScript",
@@ -227,7 +227,6 @@ const About = () => {
           </div>
         </div>
       </div>
-      {/* Extra: Responsive styling */}
       <style>
         {`
         @media (max-width: 900px) {
