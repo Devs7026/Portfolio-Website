@@ -1,5 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import pic from '../Images/Backgnd.jpeg';
+
+
+gsap.registerPlugin(ScrollTrigger);
 
 
 const skillBadges = [
@@ -89,6 +94,7 @@ const tabData = [
               key={badge.name}
               src={badge.url}
               alt={badge.name}
+              className="skill-badge"
               style={{ height: "28px" }}
             />
           ))}
@@ -127,9 +133,181 @@ const tabData = [
 
 const About = () => {
   const [activeTab, setActiveTab] = useState("skills");
+  const aboutRef = useRef(null);
+  const imageRef = useRef(null);
+  const contentRef = useRef(null);
+  const tabsRef = useRef(null);
+  const tabContentRef = useRef(null);
+
+  useEffect(() => {
+    const about = aboutRef.current;
+    const image = imageRef.current;
+    const content = contentRef.current;
+    const tabs = tabsRef.current;
+    const tabContent = tabContentRef.current;
+
+
+    gsap.fromTo(about, 
+      { 
+        opacity: 0, 
+        y: 100 
+      },
+      { 
+        opacity: 1, 
+        y: 0, 
+        duration: 1.2, 
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: about,
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse"
+        }
+      }
+    );
+
+    gsap.fromTo(image, 
+      { 
+        opacity: 0, 
+        scale: 0.8, 
+        rotation: -5 
+      },
+      { 
+        opacity: 1, 
+        scale: 1, 
+        rotation: 0, 
+        duration: 1, 
+        ease: "back.out(1.7)",
+        scrollTrigger: {
+          trigger: image,
+          start: "top 85%",
+          end: "bottom 15%",
+          toggleActions: "play none none reverse"
+        }
+      }
+    );
+
+    gsap.fromTo(content, 
+      { 
+        opacity: 0, 
+        x: 50 
+      },
+      { 
+        opacity: 1, 
+        x: 0, 
+        duration: 1, 
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: content,
+          start: "top 85%",
+          end: "bottom 15%",
+          toggleActions: "play none none reverse"
+        }
+      }
+    );
+
+
+    gsap.fromTo(tabs.children, 
+      { 
+        opacity: 0, 
+        y: 20 
+      },
+      { 
+        opacity: 1, 
+        y: 0, 
+        duration: 0.6, 
+        stagger: 0.1, 
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: tabs,
+          start: "top 90%",
+          end: "bottom 10%",
+          toggleActions: "play none none reverse"
+        }
+      }
+    );
+
+
+    gsap.fromTo(tabContent, 
+      { 
+        opacity: 0, 
+        y: 20 
+      },
+      { 
+        opacity: 1, 
+        y: 0, 
+        duration: 0.5, 
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: tabContent,
+          start: "top 90%",
+          end: "bottom 10%",
+          toggleActions: "play none none reverse"
+        }
+      }
+    );
+
+    const skillBadges = document.querySelectorAll('.skill-badge');
+    gsap.fromTo(skillBadges, 
+      { 
+        opacity: 0, 
+        scale: 0.5, 
+        rotation: 180 
+      },
+      { 
+        opacity: 1, 
+        scale: 1, 
+        rotation: 0, 
+        duration: 0.8, 
+        stagger: 0.05, 
+        ease: "back.out(1.7)",
+        scrollTrigger: {
+          trigger: skillBadges[0]?.parentElement,
+          start: "top 85%",
+          end: "bottom 15%",
+          toggleActions: "play none none reverse"
+        }
+      }
+    );
+
+
+    const imageHover = gsap.to(image, {
+      scale: 1.05,
+      rotation: 2,
+      duration: 0.4,
+      ease: "power2.out",
+      paused: true
+    });
+
+    image.addEventListener('mouseenter', () => imageHover.play());
+    image.addEventListener('mouseleave', () => imageHover.reverse());
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
+
+  
+  useEffect(() => {
+    const tabContent = tabContentRef.current;
+    if (tabContent) {
+      gsap.fromTo(tabContent, 
+        { 
+          opacity: 0, 
+          y: 20 
+        },
+        { 
+          opacity: 1, 
+          y: 0, 
+          duration: 0.4, 
+          ease: "power2.out" 
+        }
+      );
+    }
+  }, [activeTab]);
 
   return (
-    <div className="about" id="about" style={{
+    <div className="about" id="about" ref={aboutRef} style={{
       background: "black",
       color: "#fff",
       padding: "3rem 0",
@@ -154,6 +332,7 @@ const About = () => {
             alignItems: "center",
           }}>
             <img
+              ref={imageRef}
               src={pic}
               alt="About"
               style={{
@@ -166,7 +345,7 @@ const About = () => {
               }}
             />
           </div>
-          <div className="col2" style={{
+          <div className="col2" ref={contentRef} style={{
             flex: "2 1 500px",
             background: "rgba(30,30,40,0.85)",
             borderRadius: "1.2rem",
@@ -189,7 +368,7 @@ const About = () => {
             }}>
               Hi, I'm <span style={{ color: "rgb(203, 11, 11)", fontWeight: 600 }}>Dev Srijit</span>, passionate about web development and diving into the fascinating world of AI and machine learning. Whether I'm coding dynamic websites or exploring cutting-edge AI technologies, I love turning ideas into reality and continuously learning along the way. I always try to be consistent and work hard to achieve my goals.Currently Learning Cloud Computing and Spring Boot.
             </p>
-            <div className="tabtitles" style={{
+            <div className="tabtitles" ref={tabsRef} style={{
               display: "flex",
               gap: "1.5rem",
               marginBottom: "1.2rem",
@@ -217,7 +396,7 @@ const About = () => {
                 </button>
               ))}
             </div>
-            <div className="tabcontent" style={{
+            <div className="tabcontent" ref={tabContentRef} style={{
               minHeight: "120px",
               marginTop: "0.5rem",
               fontSize: "1.08rem"
@@ -242,6 +421,12 @@ const About = () => {
         .highlight {
           color:rgb(203, 11, 11);
           font-weight: 600;
+        }
+        .skill-badge {
+          transition: transform 0.3s ease;
+        }
+        .skill-badge:hover {
+          transform: scale(1.1) rotate(5deg);
         }
         `}
       </style>
