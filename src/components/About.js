@@ -187,7 +187,7 @@ const About = () => {
               marginBottom: "2.2rem",
               color: "#e0e0e0"
             }}>
-              Hi, I'm <span style={{ color: "rgb(203, 11, 11)", fontWeight: 600 }}>Dev Srijit</span>, passionate about web development and diving into the fascinating world of AI and machine learning. Whether I'm coding dynamic websites or exploring cutting-edge AI technologies, I love turning ideas into reality and continuously learning along the way. I always try to be consistent and work hard to achieve my goals.
+              Hi, I'm <span style={{ color: "rgb(203, 11, 11)", fontWeight: 600 }}>Dev Srijit</span>, passionate about web development and diving into the fascinating world of AI and machine learning. Whether I'm coding dynamic websites or exploring cutting-edge AI technologies, I love turning ideas into reality and continuously learning along the way. I always try to be consistent and work hard to achieve my goals.Currently Learning Cloud Computing and Spring Boot.
             </p>
             <div className="tabtitles" style={{
               display: "flex",
