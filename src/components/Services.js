@@ -132,7 +132,7 @@ const Services = () => {
             </div>
             <div>
             <i className="fa-solid fa-code"></i>
-                <h2>Web Design</h2>
+                <h2>Web Design & Cloud Deployment</h2>
                 <p>I can create a fully functional website design for you based on your requirements.</p>
                 <a href="https://en.wikipedia.org/wiki/Web_design">Learn more</a>
             </div>

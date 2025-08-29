@@ -8,6 +8,7 @@ import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ImageSlider from './components/ImageSlider'
+import OrbsBackground from './components/OrbsBackground';
 import img1 from './Images/certifications/img1.jpg';
 import img2 from './Images/certifications/img2.jpg';
 import img3 from './Images/certifications/img3.jpg';
@@ -54,18 +55,19 @@ function App() {
     overflow: "hidden",
   };
   return (
-    <>
+    <div className="orbs-root">
+      <OrbsBackground />
       <Nav/>
       <Header/>
       <About/>
       <Services/>
       <Portfolio/>
       <div style={containerStyles} className="imgslider">
-      <ImageSlider slides={slides}/>
+        <ImageSlider slides={slides}/>
       </div>
       <Contact/>
       <Footer/>
-      </>
+    </div>
   );
 }
 

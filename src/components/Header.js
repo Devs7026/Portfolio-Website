@@ -127,7 +127,7 @@ const Header = () => {
           Hey, I'm{' '}
           <span ref={typedRef}>
             <ReactTyped
-              strings={["Dev Srijit","A Life Long Learner"]}
+              strings={["Dev Srijit","D3V3LOP3R"]}
               typeSpeed={60}
               backSpeed={40}
               loop={true}
