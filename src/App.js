@@ -25,6 +25,9 @@ import img13 from './Images/certifications/img13.jpg';
 import img14 from './Images/certifications/img14.jpg'
 import img15 from './Images/certifications/img15.jpg'
 import img16 from './Images/certifications/img16.jpg'
+import img17 from './Images/certifications/img17.JPG'
+import img18 from './Images/certifications/img18.gif'
+import img19 from './Images/certifications/img19.gif'
 
 function App() {
   const slides= [
@@ -44,15 +47,20 @@ function App() {
     { url: img14},
     { url: img15},
     { url: img16},
+    { url: img17},
+    { url: img18},
+    { url: img19},
 
    
   ];
 
   const containerStyles ={
-    width: "700px",
+    width: "100%",
+    maxWidth: "700px",
     height: "600px",
     margin: "0 auto",
     overflow: "hidden",
+    padding: "0 20px",
   };
   return (
     <div className="orbs-root">

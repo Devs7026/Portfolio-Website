@@ -13,9 +13,8 @@ const ImageSlider=({slides}) => {
         height: "100%",
         borderRadius: "10px",
         backgroundPosition: "center",
-        // backgroundSize: "fit-content",
         backgroundSize: "contain", 
-    backgroundRepeat: "no-repeat", // Prevent image repetition
+    backgroundRepeat: "no-repeat", 
         backgroundImage: `url(${slides[currentIndex].url}) `,
     };
 
