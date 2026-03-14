@@ -51,12 +51,12 @@
   border-radius: 10px;
 }
 
-.Navbar.sticky {
-  transform: translateY(0);
+.Navbar.hidden {
+  transform: translateY(-100%);
 }
 
-.Navbar:not(.sticky) {
-  transform: translateY(-100%);
+.Navbar.visible {
+  transform: translateY(0);
 }
 
 .nav-btn {
@@ -92,6 +92,10 @@
     flex-direction: column;
     align-items: center;
     transition: right 0.3s ease-in-out;
+  }
+
+  .Navbar ul.open {
+    right: 0;
   }
 
   .Navbar ul li {

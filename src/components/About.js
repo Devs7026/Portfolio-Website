@@ -1,108 +1,42 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import React, { useState } from 'react';
 import pic from '../Images/Backgnd.jpeg';
 
-
-gsap.registerPlugin(ScrollTrigger);
-
-
 const skillBadges = [
-  {
-    name: "JavaScript",
-    url: "https://img.shields.io/badge/-JavaScript-black?style=flat-square&logo=javascript",
-  },
-  {
-    name: "TypeScript",
-    url: "https://img.shields.io/badge/-TypeScript-black?style=flat-square&logo=typescript",
-  },
-  {
-    name: "Next.js",
-    url: "https://img.shields.io/badge/-Next.js-black?style=flat-square&logo=next.js",
-  },
-  {
-    name: "Python",
-    url: "https://img.shields.io/badge/-Python-black?style=flat-square&logo=python",
-  },
-  {
-    name: "Java",
-    url: "https://img.shields.io/badge/-Java-black?style=flat-square&logo=java",
-  },
-  {
-    name: "C/C++",
-    url: "https://img.shields.io/badge/-C/C++-black?style=flat-square&logo=c",
-  },
-  {
-    name: "React",
-    url: "https://img.shields.io/badge/-React-black?style=flat-square&logo=react",
-  },
-  {
-    name: "Node.js",
-    url: "https://img.shields.io/badge/-Node.js-black?style=flat-square&logo=node.js",
-  },
-  {
-    name: "Express.js",
-    url: "https://img.shields.io/badge/-Express.js-black?style=flat-square&logo=express",
-  },
-  {
-    name: "HTML5",
-    url: "https://img.shields.io/badge/-HTML5-black?style=flat-square&logo=html5",
-  },
-  {
-    name: "CSS3",
-    url: "https://img.shields.io/badge/-CSS3-black?style=flat-square&logo=css3",
-  },
-  {
-    name: "Django",
-    url: "https://img.shields.io/badge/-Django-black?style=flat-square&logo=django",
-  },
-  {
-    name: "MongoDB",
-    url: "https://img.shields.io/badge/-MongoDB-black?style=flat-square&logo=mongodb",
-  },
-  {
-    name: "MySQL",
-    url: "https://img.shields.io/badge/-MySQL-black?style=flat-square&logo=mysql",
-  },
-  {
-    name: "Figma",
-    url: "https://img.shields.io/badge/-Figma-black?style=flat-square&logo=figma",
-  },
-  {
-    name: "Git",
-    url: "https://img.shields.io/badge/-Git-black?style=flat-square&logo=git",
-  },
-  {
-    name: "Tailwind CSS",
-    url: "https://img.shields.io/badge/-Tailwind%20CSS-black?style=flat-square&logo=tailwind-css",
-  },
+  { name: "JavaScript", url: "https://img.shields.io/badge/-JavaScript-black?style=flat-square&logo=javascript" },
+  { name: "TypeScript", url: "https://img.shields.io/badge/-TypeScript-black?style=flat-square&logo=typescript" },
+  { name: "Next.js", url: "https://img.shields.io/badge/-Next.js-black?style=flat-square&logo=next.js" },
+  { name: "Python", url: "https://img.shields.io/badge/-Python-black?style=flat-square&logo=python" },
+  { name: "Java", url: "https://img.shields.io/badge/-Java-black?style=flat-square&logo=java" },
+  { name: "C/C++", url: "https://img.shields.io/badge/-C/C++-black?style=flat-square&logo=c" },
+  { name: "React", url: "https://img.shields.io/badge/-React-black?style=flat-square&logo=react" },
+  { name: "Node.js", url: "https://img.shields.io/badge/-Node.js-black?style=flat-square&logo=node.js" },
+  { name: "Express.js", url: "https://img.shields.io/badge/-Express.js-black?style=flat-square&logo=express" },
+  { name: "HTML5", url: "https://img.shields.io/badge/-HTML5-black?style=flat-square&logo=html5" },
+  { name: "CSS3", url: "https://img.shields.io/badge/-CSS3-black?style=flat-square&logo=css3" },
+  { name: "Django", url: "https://img.shields.io/badge/-Django-black?style=flat-square&logo=django" },
+  { name: "MongoDB", url: "https://img.shields.io/badge/-MongoDB-black?style=flat-square&logo=mongodb" },
+  { name: "MySQL", url: "https://img.shields.io/badge/-MySQL-black?style=flat-square&logo=mysql" },
+  { name: "Figma", url: "https://img.shields.io/badge/-Figma-black?style=flat-square&logo=figma" },
+  { name: "Git", url: "https://img.shields.io/badge/-Git-black?style=flat-square&logo=git" },
+  { name: "Tailwind CSS", url: "https://img.shields.io/badge/-Tailwind%20CSS-black?style=flat-square&logo=tailwind-css" },
 ];
 
 const tabData = [
   {
     label: "Skills",
     key: "skills",
+    icon: "⚡",
     content: (
-      <div style={{ marginTop: "1rem" }}>
-        <div style={{
-          display: "flex",
-          flexWrap: "wrap",
-          gap: "0.5rem",
-        }}>
+      <div>
+        <div className="about-badges">
           {skillBadges.map((badge) => (
-            <img
-              key={badge.name}
-              src={badge.url}
-              alt={badge.name}
-              className="skill-badge"
-              style={{ height: "28px" }}
-            />
+            <img key={badge.name} src={badge.url} alt={badge.name} className="skill-badge" />
           ))}
         </div>
-        <ul style={{ marginTop: "1.5rem" }}>
-          <li><span className="highlight">Web Development</span> — Web app development</li>
-          <li><span className="highlight">UI/UX</span> — Designing Web/App interfaces</li>
-          <li><span className="highlight">App Development</span> — Building Android/iOS apps</li>
+        <ul className="about-list">
+          <li><span className="about-highlight">Web Development</span> — Web app development</li>
+          <li><span className="about-highlight">UI/UX</span> — Designing Web/App interfaces</li>
+          <li><span className="about-highlight">App Development</span> — Building Android/iOS apps</li>
         </ul>
       </div>
     ),
@@ -110,22 +44,24 @@ const tabData = [
   {
     label: "Experience",
     key: "experience",
+    icon: "💼",
     content: (
-      <ul style={{ marginTop: "1.5rem" }}>
-        <li><span className="highlight">2024 May-Jul</span> — Cyber Security Intern at CISCO</li>
-        <li><span className="highlight">2025 May-June</span> — AIML Intern at Elevate Labs</li>
-        <li><span className="highlight">2025 June-July</span> — Frontend Developer Intern at Diggaj Coder</li>
+      <ul className="about-list">
+        <li><span className="about-highlight">2024 May–Jul</span> — Cyber Security Intern at CISCO</li>
+        <li><span className="about-highlight">2025 May–Jun</span> — AIML Intern at Elevate Labs</li>
+        <li><span className="about-highlight">2025 Jun–Jul</span> — Frontend Developer Intern at Diggaj Coder</li>
       </ul>
     ),
   },
   {
     label: "Education",
     key: "education",
+    icon: "🎓",
     content: (
-      <ul style={{ marginTop: "1.5rem" }}>
-        <li><span className="highlight">2023-2027</span> — BTech from Manipal Institute of Technology Bengaluru</li>
-        <li><span className="highlight">2021-2023</span> — +2 from Chethana P.U College</li>
-        <li><span className="highlight">2013-2021</span> — Presidency School Bangalore North</li>
+      <ul className="about-list">
+        <li><span className="about-highlight">2023–2027</span> — BTech from Manipal Institute of Technology Bengaluru</li>
+        <li><span className="about-highlight">2021–2023</span> — +2 from Chethana P.U College</li>
+        <li><span className="about-highlight">2013–2021</span> — Presidency School Bangalore North</li>
       </ul>
     ),
   },
@@ -133,304 +69,473 @@ const tabData = [
 
 const About = () => {
   const [activeTab, setActiveTab] = useState("skills");
-  const aboutRef = useRef(null);
-  const imageRef = useRef(null);
-  const contentRef = useRef(null);
-  const tabsRef = useRef(null);
-  const tabContentRef = useRef(null);
-
-  useEffect(() => {
-    const about = aboutRef.current;
-    const image = imageRef.current;
-    const content = contentRef.current;
-    const tabs = tabsRef.current;
-    const tabContent = tabContentRef.current;
-
-
-    gsap.fromTo(about, 
-      { 
-        opacity: 0, 
-        y: 100 
-      },
-      { 
-        opacity: 1, 
-        y: 0, 
-        duration: 1.2, 
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: about,
-          start: "top 80%",
-          end: "bottom 20%",
-          toggleActions: "play none none reverse"
-        }
-      }
-    );
-
-    gsap.fromTo(image, 
-      { 
-        opacity: 0, 
-        scale: 0.8, 
-        rotation: -5 
-      },
-      { 
-        opacity: 1, 
-        scale: 1, 
-        rotation: 0, 
-        duration: 1, 
-        ease: "back.out(1.7)",
-        scrollTrigger: {
-          trigger: image,
-          start: "top 85%",
-          end: "bottom 15%",
-          toggleActions: "play none none reverse"
-        }
-      }
-    );
-
-    gsap.fromTo(content, 
-      { 
-        opacity: 0, 
-        x: 50 
-      },
-      { 
-        opacity: 1, 
-        x: 0, 
-        duration: 1, 
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: content,
-          start: "top 85%",
-          end: "bottom 15%",
-          toggleActions: "play none none reverse"
-        }
-      }
-    );
-
-
-    gsap.fromTo(tabs.children, 
-      { 
-        opacity: 0, 
-        y: 20 
-      },
-      { 
-        opacity: 1, 
-        y: 0, 
-        duration: 0.6, 
-        stagger: 0.1, 
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: tabs,
-          start: "top 90%",
-          end: "bottom 10%",
-          toggleActions: "play none none reverse"
-        }
-      }
-    );
-
-
-    gsap.fromTo(tabContent, 
-      { 
-        opacity: 0, 
-        y: 20 
-      },
-      { 
-        opacity: 1, 
-        y: 0, 
-        duration: 0.5, 
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: tabContent,
-          start: "top 90%",
-          end: "bottom 10%",
-          toggleActions: "play none none reverse"
-        }
-      }
-    );
-
-    const skillBadges = document.querySelectorAll('.skill-badge');
-    gsap.fromTo(skillBadges, 
-      { 
-        opacity: 0, 
-        scale: 0.5, 
-        rotation: 180 
-      },
-      { 
-        opacity: 1, 
-        scale: 1, 
-        rotation: 0, 
-        duration: 0.8, 
-        stagger: 0.05, 
-        ease: "back.out(1.7)",
-        scrollTrigger: {
-          trigger: skillBadges[0]?.parentElement,
-          start: "top 85%",
-          end: "bottom 15%",
-          toggleActions: "play none none reverse"
-        }
-      }
-    );
-
-
-    const imageHover = gsap.to(image, {
-      scale: 1.05,
-      rotation: 2,
-      duration: 0.4,
-      ease: "power2.out",
-      paused: true
-    });
-
-    image.addEventListener('mouseenter', () => imageHover.play());
-    image.addEventListener('mouseleave', () => imageHover.reverse());
-
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
-  }, []);
-
-  
-  useEffect(() => {
-    const tabContent = tabContentRef.current;
-    if (tabContent) {
-      gsap.fromTo(tabContent, 
-        { 
-          opacity: 0, 
-          y: 20 
-        },
-        { 
-          opacity: 1, 
-          y: 0, 
-          duration: 0.4, 
-          ease: "power2.out" 
-        }
-      );
-    }
-  }, [activeTab]);
 
   return (
-    <div className="about" id="about" ref={aboutRef} style={{
-      background: "black",
-      color: "#fff",
-      padding: "3rem 0",
-      minHeight: "100vh",
-      fontFamily: "'Inter', 'Segoe UI', Arial, sans-serif"
-    }}>
-      <div className="container" style={{
-        maxWidth: "1100px",
-        margin: "0 auto",
-        padding: "0 1.5rem",
-      }}>
-        <div className="row" style={{
-          display: "flex",
-          flexWrap: "wrap",
-          gap: "2rem",
-          alignItems: "center",
-        }}>
-          <div className="col1" style={{
-            flex: "1 1 350px",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}>
-            <img
-              ref={imageRef}
-              src={pic}
-              alt="About"
-              style={{
-                width: "320px",
-                height: "450px",
-                objectFit: "cover",
-                borderRadius: "1.5rem",
-                boxShadow: "0 6px 24px black",
-                border: "4px"
-              }}
-            />
+    <section className="about-section" id="about">
+      <style>{`
+        .about-section {
+          background: #0a0a0a;
+          color: #fff;
+          padding: 6rem 2rem;
+          min-height: 100vh;
+          font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .about-section::before {
+          content: '';
+          position: absolute;
+          top: -200px;
+          right: -200px;
+          width: 500px;
+          height: 500px;
+          background: radial-gradient(circle, rgba(203,11,11,0.12) 0%, transparent 70%);
+          pointer-events: none;
+        }
+
+        .about-section::after {
+          content: '';
+          position: absolute;
+          bottom: -200px;
+          left: -100px;
+          width: 400px;
+          height: 400px;
+          background: radial-gradient(circle, rgba(0,230,211,0.07) 0%, transparent 70%);
+          pointer-events: none;
+        }
+
+        .about-inner {
+          max-width: 1100px;
+          margin: 0 auto;
+          display: flex;
+          gap: 3.5rem;
+          align-items: flex-start;
+          flex-wrap: wrap;
+        }
+
+        .about-label {
+          font-size: 0.78rem;
+          font-weight: 700;
+          letter-spacing: 4px;
+          text-transform: uppercase;
+          color: rgb(203,11,11);
+          margin-bottom: 0.75rem;
+        }
+
+        .about-section-title {
+          font-size: 2.8rem;
+          font-weight: 800;
+          line-height: 1.1;
+          margin-bottom: 1.5rem;
+          letter-spacing: -1.5px;
+          background: linear-gradient(135deg, #fff 0%, #888 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+
+        /* LEFT: Image column */
+        .about-image-col {
+          flex: 0 0 300px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 1.2rem;
+          position: sticky;
+          top: 100px;
+        }
+
+        .about-img-wrapper {
+          position: relative;
+          width: 280px;
+        }
+
+        .about-img-wrapper::before {
+          content: '';
+          position: absolute;
+          inset: -3px;
+          border-radius: 1.5rem;
+          background: linear-gradient(135deg, rgb(203,11,11), #ff6b35, #00e6d3);
+          z-index: 0;
+        }
+
+        .about-img-wrapper img {
+          width: 100%;
+          height: 380px;
+          object-fit: cover;
+          border-radius: 1.4rem;
+          position: relative;
+          z-index: 1;
+          display: block;
+        }
+
+        .about-status-badge {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          background: rgba(255,255,255,0.05);
+          border: 1px solid rgba(255,255,255,0.1);
+          border-radius: 999px;
+          padding: 0.4rem 1rem;
+          font-size: 0.85rem;
+          color: #aaa;
+          backdrop-filter: blur(10px);
+        }
+
+        .about-status-dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: #00e6d3;
+          animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+          0%, 100% { opacity: 1; transform: scale(1); }
+          50% { opacity: 0.5; transform: scale(0.8); }
+        }
+
+        .about-status-badges {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          text-align: center;
+          width: 100%;
+        }
+
+        /* RIGHT: Content column */
+        .about-content-col {
+          flex: 1 1 500px;
+          min-width: 300px;
+        }
+
+        .about-bio {
+          font-size: 1.05rem;
+          line-height: 1.85;
+          color: #999;
+          margin-bottom: 2.5rem;
+          border-left: 3px solid rgb(203,11,11);
+          padding-left: 1.2rem;
+        }
+
+        .about-bio strong {
+          color: #fff;
+          font-weight: 600;
+        }
+
+        /* Tabs */
+        .about-tabs {
+          display: flex;
+          gap: 0;
+          margin-bottom: 0;
+          background: rgba(255,255,255,0.04);
+          border-radius: 0.75rem 0.75rem 0 0;
+          border: 1px solid rgba(255,255,255,0.08);
+          border-bottom: none;
+          overflow: hidden;
+        }
+
+        .about-tab-btn {
+          flex: 1;
+          background: none;
+          border: none;
+          color: #666;
+          font-size: 0.9rem;
+          font-weight: 600;
+          padding: 0.85rem 1rem;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          font-family: inherit;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.4rem;
+          border-right: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .about-tab-btn:last-child {
+          border-right: none;
+        }
+
+        .about-tab-btn.active {
+          background: rgba(203,11,11,0.15);
+          color: #fff;
+          border-bottom: 2px solid rgb(203,11,11);
+        }
+
+        .about-tab-btn:hover:not(.active) {
+          background: rgba(255,255,255,0.05);
+          color: #ccc;
+        }
+
+        .about-tab-content {
+          background: rgba(255,255,255,0.03);
+          border: 1px solid rgba(255,255,255,0.08);
+          border-radius: 0 0 0.75rem 0.75rem;
+          padding: 1.8rem;
+          min-height: 200px;
+        }
+
+        .about-badges {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.45rem;
+          margin-bottom: 1.5rem;
+        }
+
+        .skill-badge {
+          height: 26px;
+          border-radius: 4px;
+          transition: transform 0.2s ease, opacity 0.2s ease;
+          opacity: 0.85;
+        }
+
+        .skill-badge:hover {
+          transform: translateY(-2px);
+          opacity: 1;
+        }
+
+        .about-list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .about-list li {
+          color: #aaa;
+          font-size: 0.98rem;
+          line-height: 1.5;
+          padding: 0.75rem 1rem;
+          background: rgba(255,255,255,0.03);
+          border-radius: 0.5rem;
+          border: 1px solid rgba(255,255,255,0.06);
+          transition: background 0.2s;
+        }
+
+        .about-list li:hover {
+          background: rgba(255,255,255,0.06);
+        }
+
+        .about-highlight {
+          color: rgb(203,11,11);
+          font-weight: 700;
+          font-size: 0.88rem;
+          display: inline-block;
+          margin-right: 0.4rem;
+        }
+
+        @media (max-width: 860px) {
+          .about-section {
+            padding: 3rem 1rem;
+          }
+
+          .about-inner {
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+          }
+
+          .about-image-col {
+            position: static;
+            flex: none;
+            width: 100%;
+            gap: 1rem;
+          }
+
+          .about-img-wrapper {
+            width: 240px;
+            max-width: 100%;
+          }
+
+          .about-img-wrapper img {
+            height: 300px;
+          }
+
+          .about-section-title {
+            font-size: 2rem;
+          }
+
+          .about-label {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+          }
+
+          .about-bio {
+            font-size: 0.95rem;
+            padding-left: 1rem;
+            margin-bottom: 2rem;
+          }
+
+          .about-tabs {
+            flex-direction: column;
+            border-radius: 0.75rem;
+            border: 1px solid rgba(255,255,255,0.08);
+          }
+
+          .about-tab-btn {
+            border-right: none;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            padding: 0.75rem 1rem;
+            font-size: 0.85rem;
+          }
+
+          .about-tab-btn:last-child {
+            border-bottom: none;
+          }
+
+          .about-tab-content {
+            padding: 1.2rem;
+          }
+
+          .about-badges {
+            gap: 0.35rem;
+          }
+
+          .skill-badge {
+            height: 22px;
+          }
+
+          .about-list li {
+            font-size: 0.9rem;
+            padding: 0.6rem 0.8rem;
+          }
+
+          .about-highlight {
+            font-size: 0.82rem;
+            display: block;
+            margin-bottom: 0.3rem;
+          }
+
+          .about-status-badge {
+            font-size: 0.8rem;
+            padding: 0.35rem 0.85rem;
+          }
+
+          .about-status-badges {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            text-align: center;
+            width: 100%;
+            max-width: 280px;
+          }
+
+          .about-status-badges strong {
+            font-size: 0.85rem !important;
+            line-height: 1.4;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .about-section {
+            padding: 2rem 0.75rem;
+          }
+
+          .about-img-wrapper {
+            width: 200px;
+          }
+
+          .about-img-wrapper img {
+            height: 260px;
+          }
+
+          .about-section-title {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+          }
+
+          .about-bio {
+            font-size: 0.9rem;
+            line-height: 1.7;
+          }
+
+          .about-tab-btn {
+            font-size: 0.8rem;
+            padding: 0.65rem 0.85rem;
+          }
+
+          .about-tab-content {
+            padding: 1rem;
+          }
+
+          .about-badges {
+            gap: 0.3rem;
+          }
+
+          .skill-badge {
+            height: 20px;
+          }
+
+          .about-list li {
+            font-size: 0.85rem;
+            padding: 0.5rem 0.7rem;
+          }
+
+          .about-status-badges {
+            max-width: 100%;
+            padding: 0 1rem;
+          }
+
+          .about-status-badges strong {
+            font-size: 0.8rem !important;
+          }
+        }
+      `}</style>
+
+      <div className="about-inner">
+        {/* Left: Image */}
+        <div className="about-image-col">
+          <div className="about-img-wrapper">
+            <img src={pic} alt="About Dev Srijit" />
           </div>
-          <div className="col2" ref={contentRef} style={{
-            flex: "2 1 500px",
-            background: "rgba(30,30,40,0.85)",
-            borderRadius: "1.2rem",
-            padding: "2.5rem 2rem",
-            boxShadow: "0 2px 16px rgba(0,0,0,0.15)",
-            minWidth: "320px"
-          }}>
-            <h1 className="subtitle" style={{
-              fontSize: "2.3rem",
-              fontWeight: "bold",
-              marginBottom: "1.2rem",
-              letterSpacing: "-1px",
-              color: "White"
-            }}>About Me</h1>
-            <p style={{
-              fontSize: "1.18rem",
-              lineHeight: "1.7",
-              marginBottom: "2.2rem",
-              color: "#e0e0e0"
-            }}>
-              Hi, I'm <span style={{ color: "rgb(203, 11, 11)", fontWeight: 600 }}>Dev Srijit</span>, passionate about web development and diving into the fascinating world of AI and machine learning. Whether I'm coding dynamic websites or exploring cutting-edge AI technologies, I love turning ideas into reality and continuously learning along the way. I always try to be consistent and work hard to achieve my goals.Currently Learning Cloud Computing and Spring Boot.
-            </p>
-            <div className="tabtitles" ref={tabsRef} style={{
-              display: "flex",
-              gap: "1.5rem",
-              marginBottom: "1.2rem",
-              borderBottom: "1.5px solid #222",
-              paddingBottom: "0.5rem"
-            }}>
-              {tabData.map(tab => (
-                <button
-                  key={tab.key}
-                  className={`tablinks${activeTab === tab.key ? " activelink" : ""}`}
-                  onClick={() => setActiveTab(tab.key)}
-                  style={{
-                    background: "none",
-                    border: "none",
-                    color: activeTab === tab.key ? "#00e6d3" : "#bbb",
-                    fontWeight: activeTab === tab.key ? "bold" : "normal",
-                    fontSize: "1.08rem",
-                    padding: "0.4rem 1.1rem",
-                    borderBottom: activeTab === tab.key ? "2.5px solid #00e6d3" : "2.5px solid transparent",
-                    cursor: "pointer",
-                    transition: "all 0.2s"
-                  }}
-                >
-                  {tab.label}
-                </button>
-              ))}
-            </div>
-            <div className="tabcontent" ref={tabContentRef} style={{
-              minHeight: "120px",
-              marginTop: "0.5rem",
-              fontSize: "1.08rem"
-            }}>
-              {tabData.find(tab => tab.key === activeTab)?.content}
-            </div>
+          <div className="about-status-badge">
+            <span className="about-status-dot"></span>
+            Available for work
+          </div>
+          <div className="about-status-badges">
+            <strong style={{ color: '#fff', marginTop: '0.4rem', fontSize: '0.9rem' }}>
+              Core Skill: <span style={{ color: 'rgb(203,11,11)' }}>Java</span>
+            </strong>
+            <strong style={{ color: '#fff', marginTop: '0.4rem', fontSize: '0.9rem' }}>
+              Currently Learning: <span style={{ color: 'rgb(203,11,11)' }}>System Design, Building Scalable Systems</span>
+            </strong>
+          </div>
+        </div>
+
+        {/* Right: Content */}
+        <div className="about-content-col">
+          <p className="about-label">Who I Am</p>
+          <h1 className="about-section-title">About Me</h1>
+
+          <p className="about-bio">
+            Hi, I'm <strong>Dev Srijit</strong>, passionate about web development and diving into the fascinating world of AI and machine learning.
+            Whether I'm coding dynamic websites or exploring cutting-edge AI technologies, I love turning ideas into reality and continuously learning along the way.
+            I always try to be consistent and work hard to achieve my goals. Currently Learning Cloud Computing and Spring Boot.
+          </p>
+
+          {/* Tabs */}
+          <div className="about-tabs">
+            {tabData.map(tab => (
+              <button
+                key={tab.key}
+                className={`about-tab-btn${activeTab === tab.key ? ' active' : ''}`}
+                onClick={() => setActiveTab(tab.key)}
+              >
+                <span>{tab.icon}</span>
+                {tab.label}
+              </button>
+            ))}
+          </div>
+          <div className="about-tab-content">
+            {tabData.find(tab => tab.key === activeTab)?.content}
           </div>
         </div>
       </div>
-      <style>
-        {`
-        @media (max-width: 900px) {
-          .about .row {
-            flex-direction: column;
-            gap: 2.5rem;
-          }
-          .about .col1 img {
-            width: 220px !important;
-            height: 220px !important;
-          }
-        }
-        .highlight {
-          color:rgb(203, 11, 11);
-          font-weight: 600;
-        }
-        .skill-badge {
-          transition: transform 0.3s ease;
-        }
-        .skill-badge:hover {
-          transform: scale(1.1) rotate(5deg);
-        }
-        `}
-      </style>
-    </div>
+    </section>
   );
 };
 
