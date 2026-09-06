@@ -1,10 +1,44 @@
+/* ─── Design Tokens ────────────────────────────────────────────────────────── */
+:root {
+  /* Colors */
+  --color-bg:      #0a0a0a;
+  --color-surface: rgba(255, 255, 255, 0.04);
+  --color-border:  rgba(255, 255, 255, 0.08);
+  --color-accent:  rgb(203, 11, 11);
+  --color-accent-glow: rgba(203, 11, 11, 0.4);
+  --color-accent-subtle: rgba(203, 11, 11, 0.12);
+  --color-teal:    #00e6d3;
+  --color-text:    #ffffff;
+  --color-muted:   #999999;
+  --color-subtle:  #aaaaaa;
+
+  /* Typography */
+  --font-sans:    'Inter', 'Segoe UI', Arial, sans-serif;
+  --font-display: 'Lalezar', cursive;
+
+  /* Spacing & Shape */
+  --radius-card: 12px;
+  --radius-sm:   6px;
+
+  /* Transitions */
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.theme-bw {
+  --color-accent: #ffffff;
+  --color-accent-glow: rgba(255, 255, 255, 0.35);
+  --color-accent-subtle: rgba(255, 255, 255, 0.12);
+  --color-teal: #e2e8f0;
+}
+
+/* ─── Base ─────────────────────────────────────────────────────────────────── */
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-bg);
+  scroll-behavior: smooth;
 }
 
 code {

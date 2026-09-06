@@ -1,13 +1,16 @@
-import React from 'react'
+import React from 'react';
+import portfolioConfig from '../portfolio.config';
 
-const Footer=() => {
+const { footer } = portfolioConfig;
+
+const Footer = () => {
   return (
     <footer>
-        <div className="copyright">
-          <p> ©Copyright 2026 Dev Srijit</p>
-        </div>
+      <div className="copyright">
+        <p>{footer.copyright}</p>
+      </div>
     </footer>
   );
-}
+};
 
 export default Footer;

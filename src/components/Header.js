@@ -1,30 +1,41 @@
 import React from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 import { ReactTyped } from 'react-typed';
-import cast from '../Images/user.jpg';
+import portfolioConfig from '../portfolio.config';
+
+const { profile } = portfolioConfig;
 
 const Header = () => {
+  const prefersReduced = useReducedMotion();
+
   return (
-    <header className="Header" id="header">
+    <motion.header
+      className="Header"
+      id="header"
+      initial={prefersReduced ? {} : { opacity: 0, y: 24 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+    >
       <div>
-        <p>FullStack | UI/UX | Cloud | AIML </p>
+        <p>{profile.tagline}</p>
         <h1>
           Hey, I'm{' '}
           <span>
             <ReactTyped
-              strings={["Dev Srijit"]}
+              strings={[profile.name]}
               typeSpeed={60}
               backSpeed={40}
             />
           </span>
         </h1>
         <br />
-        <p>- "Showcasing Creativity, Crafting Impact"</p>
-        <p>Turning Ideas into Icons</p>
+        <p>- {profile.quote}</p>
+        <p>{profile.subquote}</p>
       </div>
       <div>
-        <img className='pics' src={cast} alt="my_image" />
+        <img className="pics" src={profile.heroImage} alt="my_image" />
       </div>
-    </header>
+    </motion.header>
   );
 };
 

@@ -48,15 +48,16 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
     <script>
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbyrxzTJss3YvnV3xOhJfQoSb6T6rgIjGN4B_pkJWjrxA7FUx7pvP8E0bTaRge9sZUuFtg/exec'
-      const form = document.forms['submit-to-google-sheet']
-    
-      form.addEventListener('submit', e => {
-        e.preventDefault()
-        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-          .then(response => console.log('Success!', response))
-          .catch(error => console.error('Error!', error.message))
-      })
+      const form = document.forms['submit-to-google-sheet'];
+      if (form) {
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyrxzTJss3YvnV3xOhJfQoSb6T6rgIjGN4B_pkJWjrxA7FUx7pvP8E0bTaRge9sZUuFtg/exec';
+        form.addEventListener('submit', e => {
+          e.preventDefault();
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message));
+        });
+      }
     </script>
   </body>
 </html>
