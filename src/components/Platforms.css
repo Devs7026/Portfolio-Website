@@ -1,0 +1,471 @@
+/* ─── Platforms & Accounts Section Styling ───────────────────────────────────────
+   Exact design system match with Portfolio, Achievements, Services, and Contact,
+   enhanced with platform-specific ambient glows and brand accents.
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.platforms {
+  margin: 0 50px;
+  padding: 60px 0 30px;
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+.platforms-intro {
+  font-size: 15px;
+  color: #b5b5be;
+  line-height: 1.6;
+  margin-bottom: 28px;
+  max-width: 620px;
+}
+
+.platforms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 28px;
+  margin-top: 25px;
+}
+
+/* Base Card structure matching .achievement-card & .project-card */
+.platform-card {
+  background: rgba(18, 18, 22, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+  backdrop-filter: blur(12px);
+  position: relative;
+  overflow: hidden;
+}
+
+.platform-card:hover {
+  transform: translateY(-6px);
+}
+
+/* ─── Ambient Glow Sphere based on Platform Brand ─────────────────────────── */
+.platform-card-glow {
+  position: absolute;
+  top: -45px;
+  right: -45px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.platform-card:hover .platform-card-glow {
+  opacity: 1;
+  transform: scale(1.35);
+}
+
+/* Card Top Bar */
+.platform-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.platform-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.platform-card:hover .platform-icon-wrapper {
+  transform: scale(1.08) rotate(2deg);
+}
+
+.platform-icon-fa {
+  font-size: 22px;
+  color: inherit;
+}
+
+.platform-badge-pill {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+/* Card Body */
+.platform-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: relative;
+  z-index: 2;
+}
+
+.platform-category {
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 6px;
+  transition: color 0.3s ease;
+}
+
+.platform-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 4px;
+  line-height: 1.3;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.platform-handle {
+  font-size: 13px;
+  color: #9a9ab0;
+  margin-bottom: 12px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.platform-desc {
+  font-size: 13px;
+  line-height: 1.65;
+  color: #a0a0aa;
+  flex: 1;
+  margin-bottom: 14px;
+}
+
+/* Card Footer */
+.platform-card-footer {
+  padding-top: 14px;
+  margin-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  position: relative;
+  z-index: 2;
+}
+
+.platform-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  transition: color 0.25s ease;
+}
+
+.platform-link i {
+  font-size: 11px;
+  transition: transform 0.25s ease;
+}
+
+.platform-card:hover .platform-link i {
+  transform: translate(2px, -2px);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Platform-Specific Brand Glows, Borders & Accents
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* LeetCode (Gold/Orange) */
+.platform-leetcode .platform-card-glow {
+  background: radial-gradient(circle, rgba(255, 161, 22, 0.28) 0%, transparent 70%);
+}
+.platform-leetcode:hover {
+  border-color: rgba(255, 161, 22, 0.5);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.65), 0 0 26px rgba(255, 161, 22, 0.22);
+}
+.platform-leetcode .platform-icon-wrapper {
+  background: rgba(255, 161, 22, 0.12);
+  border: 1px solid rgba(255, 161, 22, 0.3);
+}
+.platform-leetcode:hover .platform-icon-wrapper {
+  background: rgba(255, 161, 22, 0.22);
+  border-color: rgba(255, 161, 22, 0.5);
+}
+.platform-leetcode .platform-badge-pill {
+  background: rgba(255, 161, 22, 0.15);
+  border: 1px solid rgba(255, 161, 22, 0.4);
+  color: #FFA116;
+}
+.platform-leetcode .platform-category {
+  color: #FFA116;
+}
+.platform-leetcode .platform-link {
+  color: #FFA116;
+}
+.platform-leetcode:hover .platform-link {
+  color: #ffbf5c;
+}
+
+/* HackerRank (Green) */
+.platform-hackerrank .platform-card-glow {
+  background: radial-gradient(circle, rgba(46, 200, 102, 0.28) 0%, transparent 70%);
+}
+.platform-hackerrank:hover {
+  border-color: rgba(46, 200, 102, 0.5);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.65), 0 0 26px rgba(46, 200, 102, 0.22);
+}
+.platform-hackerrank .platform-icon-wrapper {
+  background: rgba(46, 200, 102, 0.12);
+  border: 1px solid rgba(46, 200, 102, 0.3);
+}
+.platform-hackerrank:hover .platform-icon-wrapper {
+  background: rgba(46, 200, 102, 0.22);
+  border-color: rgba(46, 200, 102, 0.5);
+}
+.platform-hackerrank .platform-badge-pill {
+  background: rgba(46, 200, 102, 0.15);
+  border: 1px solid rgba(46, 200, 102, 0.4);
+  color: #2EC866;
+}
+.platform-hackerrank .platform-category {
+  color: #2EC866;
+}
+.platform-hackerrank .platform-link {
+  color: #2EC866;
+}
+.platform-hackerrank:hover .platform-link {
+  color: #5cf08e;
+}
+
+/* Figma (Purple/Coral) */
+.platform-figma .platform-card-glow {
+  background: radial-gradient(circle, rgba(162, 89, 255, 0.3) 0%, transparent 70%);
+}
+.platform-figma:hover {
+  border-color: rgba(162, 89, 255, 0.5);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.65), 0 0 26px rgba(162, 89, 255, 0.22);
+}
+.platform-figma .platform-icon-wrapper {
+  background: rgba(162, 89, 255, 0.12);
+  border: 1px solid rgba(162, 89, 255, 0.3);
+}
+.platform-figma:hover .platform-icon-wrapper {
+  background: rgba(162, 89, 255, 0.22);
+  border-color: rgba(162, 89, 255, 0.5);
+}
+.platform-figma .platform-badge-pill {
+  background: rgba(162, 89, 255, 0.15);
+  border: 1px solid rgba(162, 89, 255, 0.4);
+  color: #c084fc;
+}
+.platform-figma .platform-category {
+  color: #A259FF;
+}
+.platform-figma .platform-link {
+  color: #A259FF;
+}
+.platform-figma:hover .platform-link {
+  color: #c084fc;
+}
+
+/* LinkedIn (Blue) */
+.platform-linkedin .platform-card-glow {
+  background: radial-gradient(circle, rgba(10, 102, 194, 0.3) 0%, transparent 70%);
+}
+.platform-linkedin:hover {
+  border-color: rgba(10, 102, 194, 0.5);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.65), 0 0 26px rgba(10, 102, 194, 0.22);
+}
+.platform-linkedin .platform-icon-wrapper {
+  background: rgba(10, 102, 194, 0.12);
+  border: 1px solid rgba(10, 102, 194, 0.3);
+  color: #0A66C2;
+}
+.platform-linkedin:hover .platform-icon-wrapper {
+  background: rgba(10, 102, 194, 0.22);
+  border-color: rgba(10, 102, 194, 0.5);
+}
+.platform-linkedin .platform-badge-pill {
+  background: rgba(10, 102, 194, 0.15);
+  border: 1px solid rgba(10, 102, 194, 0.4);
+  color: #38bdf8;
+}
+.platform-linkedin .platform-category {
+  color: #0A66C2;
+}
+.platform-linkedin .platform-link {
+  color: #0A66C2;
+}
+.platform-linkedin:hover .platform-link {
+  color: #38bdf8;
+}
+
+/* Instagram (Pink / Magenta) */
+.platform-instagram .platform-card-glow {
+  background: radial-gradient(circle, rgba(225, 48, 108, 0.3) 0%, transparent 70%);
+}
+.platform-instagram:hover {
+  border-color: rgba(225, 48, 108, 0.5);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.65), 0 0 26px rgba(225, 48, 108, 0.22);
+}
+.platform-instagram .platform-icon-wrapper {
+  background: rgba(225, 48, 108, 0.12);
+  border: 1px solid rgba(225, 48, 108, 0.3);
+  color: #E1306C;
+}
+.platform-instagram:hover .platform-icon-wrapper {
+  background: rgba(225, 48, 108, 0.22);
+  border-color: rgba(225, 48, 108, 0.5);
+}
+.platform-instagram .platform-badge-pill {
+  background: rgba(225, 48, 108, 0.15);
+  border: 1px solid rgba(225, 48, 108, 0.4);
+  color: #f472b6;
+}
+.platform-instagram .platform-category {
+  color: #E1306C;
+}
+.platform-instagram .platform-link {
+  color: #E1306C;
+}
+.platform-instagram:hover .platform-link {
+  color: #f472b6;
+}
+
+/* GitHub (White / Monochrome) */
+.platform-github .platform-card-glow {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.18) 0%, transparent 70%);
+}
+.platform-github:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.65), 0 0 26px rgba(255, 255, 255, 0.15);
+}
+.platform-github .platform-icon-wrapper {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+.platform-github:hover .platform-icon-wrapper {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+.platform-github .platform-badge-pill {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #f3f4f6;
+}
+.platform-github .platform-category {
+  color: #e5e7eb;
+}
+.platform-github .platform-link {
+  color: #ffffff;
+}
+.platform-github:hover .platform-link {
+  color: #e0e0e0;
+}
+
+/* X (Twitter) */
+.platform-twitter .platform-card-glow {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.18) 0%, transparent 70%);
+}
+.platform-twitter:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.65), 0 0 26px rgba(255, 255, 255, 0.15);
+}
+.platform-twitter .platform-icon-wrapper {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+.platform-twitter:hover .platform-icon-wrapper {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+.platform-twitter .platform-badge-pill {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #f3f4f6;
+}
+.platform-twitter .platform-category {
+  color: #e5e7eb;
+}
+.platform-twitter .platform-link {
+  color: #ffffff;
+}
+.platform-twitter:hover .platform-link {
+  color: #e0e0e0;
+}
+
+/* ─── Noir / Monochrome Mode (body.theme-bw) ──────────────────────────────── */
+body.theme-bw .platforms {
+  color: #ffffff;
+}
+
+body.theme-bw .platform-card-glow {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%) !important;
+}
+
+body.theme-bw .platform-card:hover {
+  border-color: rgba(255, 255, 255, 0.45) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 24px rgba(255, 255, 255, 0.12) !important;
+}
+
+body.theme-bw .platform-icon-wrapper {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  color: #ffffff !important;
+}
+
+body.theme-bw .platform-card:hover .platform-icon-wrapper {
+  background: rgba(255, 255, 255, 0.18) !important;
+}
+
+body.theme-bw .platform-badge-pill {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  color: #ffffff !important;
+}
+
+body.theme-bw .platform-category,
+body.theme-bw .platform-link {
+  color: #ffffff !important;
+}
+
+body.theme-bw .platform-svg.leetcode-svg path[fill="#FFA116"] {
+  fill: #ffffff;
+}
+
+body.theme-bw .platform-svg.leetcode-svg path[fill="#B3B3B3"] {
+  fill: #cccccc;
+}
+
+body.theme-bw .platform-svg.hackerrank-svg path[fill="#2EC866"] {
+  fill: #ffffff;
+}
+
+body.theme-bw .platform-svg.hackerrank-svg path[fill="#FFFFFF"] {
+  fill: #000000;
+}
+
+body.theme-bw .platform-svg.figma-svg {
+  filter: grayscale(100%) brightness(1.25);
+}
+
+/* ─── Responsive Media Queries (Matches other sections) ───────────────────── */
+@media only screen and (max-width: 768px) {
+  .platforms {
+    margin: 0 20px;
+  }
+  .platforms-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}

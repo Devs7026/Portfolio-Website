@@ -1,79 +1,27 @@
+/* ─────────────────────────────────────────────────────────────
+   Modern & Minimalist Navbar
+   ───────────────────────────────────────────────────────────── */
+
 .Navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  height: 68px;
   z-index: 1000;
-  transition: transform 0.3s ease-in-out;
-  background-color: rgba(0, 0, 0, 0.9);
-  padding: 10px 50px;
+  padding: 0 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.Navbar img {
-  width: 200px;
-}
-
-.Navbar ul {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.Navbar ul li {
-  margin: 0 16px;
-}
-
-.Navbar ul li.nav-social-item {
-  margin: 0 6px;
-  display: flex;
-  align-items: center;
-}
-
-.Navbar ul li.nav-social-item a {
-  font-size: 19px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
-  padding: 4px;
-  transition: transform 0.25s ease, color 0.25s ease;
-}
-
-.Navbar ul li.nav-social-item a:hover {
-  transform: translateY(-2px) scale(1.15);
-  color: var(--color-accent);
-}
-
-.Navbar ul li.nav-social-item a::after {
-  display: none !important;
-}
-
-.Navbar ul li a {
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-  position: relative;
-  font-family: 'Lalezar', cursive;
-}
-
-.Navbar ul li a::after {
-  content: '';
-  width: 0;
-  height: 3px;
-  background: rgb(203, 11, 11);
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  transition: 0.5s;
-}
-
-.Navbar ul li a:hover::after {
-  width: 70%;
-  border-radius: 10px;
+  background: rgba(10, 10, 12, 0.78);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.3s ease,
+              border-color 0.3s ease;
+  box-sizing: border-box;
 }
 
 .Navbar.hidden {
@@ -84,39 +32,105 @@
   transform: translateY(0);
 }
 
+/* Brand Logo */
+.Navbar .Logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.Navbar .Logo:hover {
+  opacity: 0.88;
+  transform: scale(1.02);
+}
+
+.Navbar .Logo img {
+  height: 38px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Navigation Menu List */
+.Navbar ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 4px;
+}
+
+.Navbar ul li {
+  margin: 0;
+}
+
+/* Modern & Simple Nav Link Items */
+.Navbar ul li a {
+  display: inline-block;
+  color: #a1a1aa;
+  text-decoration: none;
+  font-size: 14.5px;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: 0.15px;
+  padding: 7px 14px;
+  border-radius: 8px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+  position: relative;
+}
+
+.Navbar ul li a:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+/* Clean Underline/Pill Highlight Indicator on Active or Focus */
+.Navbar ul li a:active,
+.Navbar ul li a:focus-visible {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  outline: none;
+}
+
+/* Monochrome / B&W Toggle Button */
 .nav-toggle-item {
   display: flex;
   align-items: center;
+  margin-right: 6px;
 }
 
 .theme-toggle-btn {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #d4d4d8;
   border-radius: 20px;
   padding: 5px 12px;
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 12.5px;
+  font-weight: 500;
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 6px;
   cursor: pointer;
-  transition: all 0.25s ease;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  transition: all 0.2s ease;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
   outline: none;
 }
 
 .theme-toggle-btn:hover {
-  background: rgba(255, 255, 255, 0.16);
-  border-color: rgba(255, 255, 255, 0.35);
-  transform: scale(1.04);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  transform: scale(1.02);
 }
 
 .theme-toggle-btn.active {
   background: #ffffff;
   color: #000000;
   border-color: #ffffff;
-  box-shadow: 0 0 14px rgba(255, 255, 255, 0.45);
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.35);
 }
 
 .theme-toggle-btn.active .theme-toggle-label {
@@ -124,7 +138,7 @@
 }
 
 .theme-toggle-btn i {
-  font-size: 13px;
+  font-size: 12px;
   transition: transform 0.3s ease;
 }
 
@@ -132,54 +146,103 @@
   transform: rotate(180deg);
 }
 
+/* Mobile Toggle Hamburger Button */
 .nav-btn {
   display: none;
-  padding: 5px;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  font-size: 17px;
   cursor: pointer;
-  background: rgb(177, 23, 23);
-  border: none;
-  outline: none;
-  color: white;
+  transition: all 0.2s ease;
 }
 
-@media only screen and (max-width: 600px) {
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.nav-close-btn {
+  display: none;
+}
+
+/* Mobile Backdrop Overlay */
+.nav-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 1000;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Mobile Responsive Drawer (Clean Frosted Glass Sheet)
+   ───────────────────────────────────────────────────────────── */
+@media only screen and (max-width: 900px) {
   .Navbar {
-    padding: 10px 20px;
+    padding: 0 20px;
+    height: 64px;
   }
 
   .nav-btn {
-    display: block;
-    font-size: 25px;
+    display: flex;
+  }
+
+  .nav-close-btn {
+    display: flex;
   }
 
   .Navbar ul {
-    background: rgb(177, 23, 23);
+    background: rgba(12, 12, 16, 0.96);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
     position: fixed;
     top: 0;
-    right: -200px;
-    width: 200px;
-    height: 150vh;
-    padding-top: 50px;
-    z-index: 2;
+    right: -290px;
+    width: 280px;
+    height: 100vh;
+    padding: 72px 20px 30px;
+    z-index: 1001;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    transition: right 0.3s ease-in-out;
+    align-items: stretch;
+    gap: 6px;
+    transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: -12px 0 36px rgba(0, 0, 0, 0.75);
   }
 
   .Navbar ul.open {
     right: 0;
   }
 
-  .Navbar ul li {
-    display: block;
-    margin: 25px;
+  .Navbar ul .nav-toggle-item {
+    margin: 0 0 12px 0;
+    padding: 0 4px;
   }
 
-  .Navbar ul .nav-btn {
-    position: absolute;
-    top: 25px;
-    left: 25px;
-    cursor: pointer;
+  .Navbar ul .theme-toggle-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 8px 14px;
   }
-} 
+
+  .Navbar ul li a {
+    display: block;
+    padding: 12px 16px;
+    font-size: 15px;
+    border-radius: 10px;
+  }
+
+  .Navbar ul .nav-close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+  }
+}

@@ -8,6 +8,7 @@ import Services from './components/Services';
 import Portfolio from './components/Portfolio';
 import Achievements from './components/Achievements';
 import Badges from './components/Badges';
+import Platforms from './components/Platforms';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ImageSlider from './components/ImageSlider';
@@ -80,6 +81,7 @@ function App() {
           </div>
         </div>
         <Badges />
+        <Platforms />
         <Contact />
         <CurvedLoop
           marqueeText={marquee.bottom}

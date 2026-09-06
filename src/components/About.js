@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import portfolioConfig from '../portfolio.config';
+import DeveloperTerminal from './DeveloperTerminal';
 
 const { profile, skills, experience, education } = portfolioConfig;
 
@@ -79,11 +80,9 @@ const About = () => {
   return (
     <section className="about-section" id="about">
       <div className="about-inner">
-        {/* Left: Image */}
+        {/* Left: Interactive Developer Terminal Card */}
         <div className="about-image-col">
-          <div className="about-img-wrapper">
-            <img src={profile.aboutImage} alt={`About ${profile.name}`} />
-          </div>
+          <DeveloperTerminal />
           <div className="about-status-badge">
             <span className="about-status-dot" />
             {profile.availableForWork ? "Available for work" : "Not available"}

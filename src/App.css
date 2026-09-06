@@ -55,77 +55,11 @@ background-position: center;
 @keyframes float5 { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(60px, -80px) scale(0.9); } }
 
 
-.Navbar, .Header, .about, .services, .portfolio, .contact, .copyright, .imgslider, .Slider, .Slide {
+.Navbar, .Header, .about, .services, .portfolio, .achievements, .platforms, .contact, .copyright, .imgslider, .Slider, .Slide {
   position: relative;
   z-index: 1;
 }
-/*-----------------------------Navbar logo---------------------------*/
-.Navbar img{
-  width: 150px;
-  height: auto;
-}
 
-/*-----------------------------Navbar-------------------------------*/
-
-.Navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  transition: transform 0.3s ease-in-out;
-  background-color: rgba(0, 0, 0, 0.9);
-  padding: 10px 50px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-.Navbar.sticky {
-  transform: translateY(0);
-}
-
-.Navbar:not(.sticky) {
-  transform: translateY(-100%);
-}
-
-.Navbar ul {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  align-items: center;
-}
-
-.Navbar ul li {
-  margin: 0 20px;
-}
-
-.Navbar ul li a {
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-  position: relative;
-  font-family: 'Lalezar', cursive;
-}
-
-.Navbar ul li a::after {
-  content: '';
-  width: 0;
-  height: 3px;
-  background: rgb(203, 11, 11);
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  transition: 0.5s;
-}
-
-.Navbar ul li a:hover::after {
-  width: 70%;
-  border-radius: 10px;
-}
 
 
 /*-----------------------Header part-----------------------------*/
@@ -935,11 +869,13 @@ width: 50%;
   .portfolio,
   .achievements,
   .certifications-section,
-  .badges-section {
+  .badges-section,
+  .platforms {
     margin: 0 20px;
   }
   .project-grid,
-  .achievements-list {
+  .achievements-list,
+  .platforms-grid {
     grid-template-columns: 1fr;
     gap: 20px;
   }
@@ -1598,9 +1534,10 @@ html {
   background-clip: text;
 }
 
-/* Left: image column */
+/* Left: image / terminal column */
 .about-image-col {
-  flex: 0 0 300px;
+  flex: 0 0 350px;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2085,6 +2022,11 @@ body.theme-bw .nav-social-item .nav-icon-link .hackerrank-hexagon-svg path[fill=
 }
 body.theme-bw .nav-social-item .nav-icon-link .hackerrank-hexagon-svg path[fill="#FFFFFF"] {
   fill: #000000;
+}
+
+/* Figma logo in monochrome */
+body.theme-bw .figma-svg {
+  filter: grayscale(100%) brightness(1.25);
 }
 
 /* Badges section monochrome styles */
