@@ -16,7 +16,7 @@ const portfolioConfig = {
     subquote: "Turning Ideas into Icons",
     /** Bio text. The value of `name` above is auto-bolded by the component. */
     bioText:
-      "Hi, I'm Dev Srijit, passionate about web development and diving into the fascinating world of AI and machine learning. Whether I'm coding dynamic websites or exploring cutting-edge AI technologies, I love turning ideas into reality and continuously learning along the way. I always try to be consistent and work hard to achieve my goals. Currently Learning Cloud Computing and Spring Boot.",
+      "Hi, I'm Dev Srijit, passionate about web development and diving into the fascinating world of AI and machine learning. Whether I'm coding dynamic websites or exploring cutting-edge AI technologies, I love turning ideas into reality and continuously learning along the way. I always try to be consistent and work hard to achieve my goals. Currently learning AIML and Automation.",
     coreSkill: "Java",
     currentlyLearning: "System Design, Building Scalable Systems",
     availableForWork: true,
