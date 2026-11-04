@@ -6,16 +6,17 @@
 .activity-section {
   position: relative;
   z-index: 1;
-  padding: 80px 0 50px;
+  margin: 0 50px;
+  padding: 60px 0 30px;
   color: #fff;
 }
 
 .activity-intro {
-  color: #a5a5ad;
+  color: #b5b5be;
   font-size: 15px;
-  max-width: 680px;
-  margin-top: -12px;
-  margin-bottom: 35px;
+  max-width: 640px;
+  margin-top: -6px;
+  margin-bottom: 30px;
   line-height: 1.6;
 }
 
@@ -623,12 +624,27 @@ body.theme-bw .heatmap-tab-btn.active {
 }
 
 /* Responsive Styles */
+@media (max-width: 1024px) {
+  .activity-section {
+    margin: 0 35px;
+  }
+}
+
 @media (max-width: 768px) {
+  .activity-section {
+    margin: 0 20px;
+    padding: 40px 0 20px;
+  }
   .activity-metric-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
   .activity-platforms-row {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .heatmap-card {
+    padding: 20px 16px;
   }
   .heatmap-card-header {
     flex-direction: column;

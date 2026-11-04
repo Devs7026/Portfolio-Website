@@ -55,7 +55,7 @@ background-position: center;
 @keyframes float5 { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(60px, -80px) scale(0.9); } }
 
 
-.Navbar, .Header, .about, .services, .portfolio, .achievements, .platforms, .contact, .copyright, .imgslider, .Slider, .Slide {
+.Navbar, .Header, .about, .services, .portfolio, .achievements, .activity-section, .platforms, .contact, .copyright, .imgslider, .Slider, .Slide {
   position: relative;
   z-index: 1;
 }
@@ -868,6 +868,7 @@ width: 50%;
 @media only screen and (max-width: 768px) {
   .portfolio,
   .achievements,
+  .activity-section,
   .certifications-section,
   .badges-section,
   .platforms {
