@@ -7,6 +7,7 @@ import About from './components/About';
 import Services from './components/Services';
 import Portfolio from './components/Portfolio';
 import Achievements from './components/Achievements';
+import ActivityStats from './components/ActivityStats';
 import Badges from './components/Badges';
 import Platforms from './components/Platforms';
 import Contact from './components/Contact';
@@ -72,6 +73,7 @@ function App() {
         <Services />
         <Portfolio />
         <Achievements />
+        <ActivityStats />
         <div className="certifications-section" id="certifications">
           <div className="container">
             <h1 className="certi certi-section-title">Licenses &amp; Certifications</h1>

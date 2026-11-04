@@ -33,19 +33,19 @@ export default engineer;`,
   stack: `// tech-stack.json
 {
   "languages": ["Java", "TypeScript", "Python", "C++", "SQL"],
-  "frameworks": ["Spring Boot", "React", "Next.js", "Node.js"],
-  "data_and_ai": ["Kafka", "PostgreSQL", "MongoDB", "Gemini API"],
+  "frameworks": ["Spring Boot", "React", "Next.js", "FastAPI"],
+  "data_and_ai": ["PostgreSQL", "Supabase", "Kafka", "Gemini API"],
   "design": ["Figma", "UI/UX Prototyping", "Design Systems"],
   "tools": ["Git", "Docker", "AWS", "Linux", "REST APIs"]
 }`,
 
   stats: `# terminal.sh
 $ dev-srijit --overview
-✔ 400+ Algorithmic Challenges Solved
-✔ 365 Days Active LeetCode Streak
-✔ 5★ Gold Coder on HackerRank
+✔ Top 10 Nationwide: Deloitte USI Capstone 2026
 ✔ 1st Place Winner: Aptiv Ideathon
 ✔ Top 20 Finalist: Tally Code Brewers
+✔ 450+ Algorithmic Challenges Solved
+✔ 365 Days Active LeetCode Streak
 $ echo $MOTTO
 "Turning Ideas into Scalable Impact ⚡"`
 };
@@ -158,9 +158,9 @@ const DeveloperTerminal = () => {
                   <span className="c-comment">{'// tech-stack.json'}</span>{'\n'}
                   {`{\n`}
                   {'  '}<span className="c-prop">"languages"</span>: [<span className="c-string">"Java"</span>, <span className="c-string">"TypeScript"</span>, <span className="c-string">"Python"</span>, <span className="c-string">"C++"</span>],{'\n'}
-                  {'  '}<span className="c-prop">"backend"</span>: [<span className="c-string">"Spring Boot"</span>, <span className="c-string">"REST APIs"</span>, <span className="c-string">"PostgreSQL"</span>],{'\n'}
+                  {'  '}<span className="c-prop">"backend"</span>: [<span className="c-string">"Spring Boot"</span>, <span className="c-string">"FastAPI"</span>, <span className="c-string">"PostgreSQL"</span>],{'\n'}
                   {'  '}<span className="c-prop">"frontend"</span>: [<span className="c-string">"React"</span>, <span className="c-string">"Next.js"</span>, <span className="c-string">"Tailwind CSS"</span>],{'\n'}
-                  {'  '}<span className="c-prop">"ai_and_data"</span>: [<span className="c-string">"Kafka"</span>, <span className="c-string">"Gemini API"</span>, <span className="c-string">"MongoDB"</span>],{'\n'}
+                  {'  '}<span className="c-prop">"ai_and_data"</span>: [<span className="c-string">"Supabase"</span>, <span className="c-string">"Gemini API"</span>, <span className="c-string">"Kafka"</span>],{'\n'}
                   {'  '}<span className="c-prop">"design"</span>: [<span className="c-string">"Figma"</span>, <span className="c-string">"UI/UX Prototyping"</span>],{'\n'}
                   {'  '}<span className="c-prop">"tools"</span>: [<span className="c-string">"Git"</span>, <span className="c-string">"Docker"</span>, <span className="c-string">"AWS"</span>, <span className="c-string">"Linux"</span>]{'\n'}
                   {`}`}
@@ -171,11 +171,11 @@ const DeveloperTerminal = () => {
                 <>
                   <span className="c-comment">{'# terminal.sh'}</span>{'\n'}
                   <span className="c-prompt">$</span> <span className="c-cmd">dev-srijit --highlights</span>{'\n'}
-                  <span className="c-output">✔ 400+ Algorithmic Challenges Solved</span>{'\n'}
-                  <span className="c-output">✔ 365 Days Active LeetCode Streak</span>{'\n'}
-                  <span className="c-output">✔ 5★ Gold Coder on HackerRank</span>{'\n'}
+                  <span className="c-output">✔ Top 10 Nationwide: Deloitte USI Capstone 2026</span>{'\n'}
                   <span className="c-output">✔ 1st Place Winner: Aptiv Ideathon</span>{'\n'}
-                  <span className="c-output">✔ Top 20 Finalist: Tally Code Brewers</span>{'\n\n'}
+                  <span className="c-output">✔ Top 20 Finalist: Tally Code Brewers</span>{'\n'}
+                  <span className="c-output">✔ 450+ Algorithmic Challenges Solved</span>{'\n'}
+                  <span className="c-output">✔ 365 Days Active LeetCode Streak</span>{'\n\n'}
                   <span className="c-prompt">$</span> <span className="c-cmd">echo $MOTTO</span>{'\n'}
                   <span className="c-accent">"Turning Ideas into Scalable Impact ⚡"</span>
                 </>

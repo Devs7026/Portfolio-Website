@@ -33,6 +33,7 @@ const portfolioConfig = {
       { label: "Services", sectionId: "services" },
       { label: "Portfolio", sectionId: "portfolio" },
       { label: "Achievements", sectionId: "achievements" },
+      { label: "Activity", sectionId: "activity" },
       { label: "Badges", sectionId: "badges" },
       { label: "Platforms", sectionId: "platforms" },
       { label: "Contact", sectionId: "contact" },
@@ -55,7 +56,10 @@ const portfolioConfig = {
     { name: "C/C++", url: "https://img.shields.io/badge/-C/C++-black?style=flat-square&logo=c" },
     { name: "React", url: "https://img.shields.io/badge/-React-black?style=flat-square&logo=react" },
     { name: "Node.js", url: "https://img.shields.io/badge/-Node.js-black?style=flat-square&logo=node.js" },
+    { name: "FastAPI", url: "https://img.shields.io/badge/-FastAPI-black?style=flat-square&logo=fastapi" },
     { name: "Express.js", url: "https://img.shields.io/badge/-Express.js-black?style=flat-square&logo=express" },
+    { name: "PostgreSQL", url: "https://img.shields.io/badge/-PostgreSQL-black?style=flat-square&logo=postgresql" },
+    { name: "Supabase", url: "https://img.shields.io/badge/-Supabase-black?style=flat-square&logo=supabase" },
     { name: "HTML5", url: "https://img.shields.io/badge/-HTML5-black?style=flat-square&logo=html5" },
     { name: "CSS3", url: "https://img.shields.io/badge/-CSS3-black?style=flat-square&logo=css3" },
     { name: "Django", url: "https://img.shields.io/badge/-Django-black?style=flat-square&logo=django" },
@@ -109,6 +113,17 @@ const portfolioConfig = {
 
   /* ── Projects (Revamped Modern Cards) ─────────────────── */
   projects: [
+    {
+      id: "caseforge",
+      title: "CaseForge",
+      subtitle: "AI Judgment Apprenticeship Simulator • Deloitte USI Capstone",
+      year: "2026",
+      tags: ["Next.js", "React", "Python", "FastAPI", "Gemini API", "Supabase", "PostgreSQL"],
+      description:
+        "An AI Judgment Apprenticeship Simulator developed as part of the Deloitte USI Capstone Program 2026 to bridge the AI apprenticeship gap. Empowers professionals to develop the judgment required to supervise, verify, and correct AI outputs through realistic simulations featuring a Scenario Engine (with planted AI errors), Judgment Engine (accept, verify, override, escalate), Evaluation Engine (deterministic checks + AI rubric scoring), and enterprise Responsible AI guardrails.",
+      image: require('./Images/caseforge.jpg'),
+      githubUrl: "https://github.com/Devs7026/CaseForge",
+    },
     {
       id: "outreach-ai",
       title: "OutreachAI",
@@ -180,6 +195,19 @@ const portfolioConfig = {
   /* ── Achievements (Dynamic Cards) ────────────────────── */
   achievements: [
     {
+      id: "deloitte-usi-capstone-2026",
+      title: "Deloitte USI Capstone 2026",
+      subtitle: "AI Judgment Apprenticeship Simulator (CaseForge)",
+      category: "National Capstone & AI",
+      badge: "Top 10 Nationwide",
+      badgeType: "gold",
+      highlight: "Top 4 in College • Top 10 Teams Nationwide",
+      description:
+        "Selected as one of the top 4 teams from college and top 10 teams nationwide in the Deloitte USI Capstone Program 2026 for building CaseForge—an enterprise simulator training professionals to supervise, audit, and correct AI-generated outputs.",
+      icon: "fa-solid fa-trophy",
+      year: "2026",
+    },
+    {
       id: "aptiv-ideathon-2025",
       title: "Aptiv Abilities Network 2025",
       subtitle: "Design for Accessibility X Ideathon",
@@ -212,7 +240,7 @@ const portfolioConfig = {
       category: "Competitive Programming",
       badge: "365 Badge",
       badgeType: "accent",
-      highlight: "400+ Problems • 250+ Active Days • 1500+ Rating",
+      highlight: "450+ Problems • 300+ Active Days • 1500+ Rating",
       description:
         "Earned the official 365 Days Badge, consistently maintaining 250+ active days, solving over 400 algorithmic problems, and securing a 1500+ rating.",
       icon: "fa-solid fa-fire",
@@ -455,8 +483,10 @@ const portfolioConfig = {
     { name: "React", logoUrl: "https://img.shields.io/badge/-React-black?style=flat-square&logo=react" },
     { name: "Next.js", logoUrl: "https://img.shields.io/badge/-Next.js-black?style=flat-square&logo=next.js" },
     { name: "Node.js", logoUrl: "https://img.shields.io/badge/-Node.js-black?style=flat-square&logo=node.js" },
+    { name: "FastAPI", logoUrl: "https://img.shields.io/badge/-FastAPI-black?style=flat-square&logo=fastapi" },
     { name: "Python", logoUrl: "https://img.shields.io/badge/-Python-black?style=flat-square&logo=python" },
     { name: "Java", logoUrl: "https://img.shields.io/badge/-Java-black?style=flat-square&logo=java" },
+    { name: "PostgreSQL", logoUrl: "https://img.shields.io/badge/-PostgreSQL-black?style=flat-square&logo=postgresql" },
     { name: "MongoDB", logoUrl: "https://img.shields.io/badge/-MongoDB-black?style=flat-square&logo=mongodb" },
     { name: "MySQL", logoUrl: "https://img.shields.io/badge/-MySQL-black?style=flat-square&logo=mysql" },
     { name: "Figma", logoUrl: "https://img.shields.io/badge/-Figma-black?style=flat-square&logo=figma" },

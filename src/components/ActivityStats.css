@@ -1,0 +1,642 @@
+/* ==========================================================================
+   ActivityStats.css
+   Coding Activity, Cumulative Questions Solved & Interactive Heatmap
+   ========================================================================== */
+
+.activity-section {
+  position: relative;
+  z-index: 1;
+  padding: 80px 0 50px;
+  color: #fff;
+}
+
+.activity-intro {
+  color: #a5a5ad;
+  font-size: 15px;
+  max-width: 680px;
+  margin-top: -12px;
+  margin-bottom: 35px;
+  line-height: 1.6;
+}
+
+/* ── Top Metric Highlights Grid ────────────────────────────────────────── */
+.activity-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+  margin-bottom: 35px;
+}
+
+.activity-metric-card {
+  background: rgba(18, 18, 22, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 22px 24px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  backdrop-filter: blur(12px);
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.activity-metric-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--metric-accent, rgba(203, 11, 11, 0.6)), transparent);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.activity-metric-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5), 0 0 20px var(--metric-glow, rgba(203, 11, 11, 0.15));
+}
+
+.activity-metric-card:hover::before {
+  opacity: 1;
+}
+
+.activity-metric-card.accent-amber {
+  --metric-accent: #ffa116;
+  --metric-glow: rgba(255, 161, 22, 0.2);
+}
+
+.activity-metric-card.accent-red {
+  --metric-accent: #cb0b0b;
+  --metric-glow: rgba(203, 11, 11, 0.2);
+}
+
+.activity-metric-card.accent-teal {
+  --metric-accent: #00e6d3;
+  --metric-glow: rgba(0, 230, 211, 0.2);
+}
+
+.activity-metric-card.accent-purple {
+  --metric-accent: #a259ff;
+  --metric-glow: rgba(162, 89, 255, 0.2);
+}
+
+.metric-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--metric-accent, #fff);
+}
+
+.metric-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.metric-value {
+  font-size: 28px;
+  font-weight: 700;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #fff;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+
+.metric-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin-top: 3px;
+}
+
+.metric-subtext {
+  font-size: 11.5px;
+  color: #8b8b94;
+  margin-top: 3px;
+}
+
+/* ── Platform Detailed Cards ───────────────────────────────────────────── */
+.activity-platforms-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.activity-platform-card {
+  background: rgba(18, 18, 22, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(12px);
+  position: relative;
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.activity-platform-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.6);
+}
+
+.activity-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.platform-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.platform-logo-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 22px;
+}
+
+.platform-logo-box.leetcode-box {
+  background: rgba(255, 161, 22, 0.1);
+  border-color: rgba(255, 161, 22, 0.3);
+}
+
+.platform-logo-box.hackerrank-box {
+  background: rgba(46, 200, 102, 0.1);
+  border-color: rgba(46, 200, 102, 0.3);
+}
+
+.platform-logo-box.github-box {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.platform-meta h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.platform-meta a {
+  font-size: 12px;
+  color: #8b8b94;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.25s ease;
+}
+
+.platform-meta a:hover {
+  color: #00e6d3;
+}
+
+.platform-badge-tag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.3px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #cfcfd6;
+}
+
+.platform-badge-tag.gold {
+  background: rgba(255, 196, 0, 0.12);
+  border-color: rgba(255, 196, 0, 0.35);
+  color: #ffd043;
+}
+
+.platform-big-stat {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.big-stat-number {
+  font-size: 38px;
+  font-weight: 800;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.big-stat-desc {
+  font-size: 13px;
+  color: #8b8b94;
+  font-weight: 500;
+}
+
+/* LeetCode Difficulty Breakdown */
+.difficulty-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  margin: 10px 0 18px;
+}
+
+.diff-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.diff-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.diff-name.easy { color: #00b8a3; }
+.diff-name.medium { color: #ffc01e; }
+.diff-name.hard { color: #ff375f; }
+
+.diff-count {
+  color: #cfcfd6;
+  font-size: 11.5px;
+}
+
+.diff-progress-bg {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.diff-progress-fill {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.diff-progress-fill.easy { background: linear-gradient(90deg, #00b8a3, #22e6cd); }
+.diff-progress-fill.medium { background: linear-gradient(90deg, #ffc01e, #ffd269); }
+.diff-progress-fill.hard { background: linear-gradient(90deg, #ff375f, #ff6685); }
+
+/* HackerRank Domain Badges */
+.hackerrank-domains {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0 18px;
+}
+
+.hr-badge-chip {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  padding: 6px 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #cfcfd6;
+}
+
+.hr-badge-chip.gold {
+  background: rgba(255, 196, 0, 0.08);
+  border-color: rgba(255, 196, 0, 0.25);
+  color: #ffda6a;
+}
+
+.hr-stars {
+  color: #ffd043;
+  font-size: 11px;
+}
+
+.hr-count {
+  font-size: 11px;
+  color: #8b8b94;
+  margin-left: 2px;
+}
+
+/* GitHub Tech Chips */
+.github-stats-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 10px 0 18px;
+}
+
+.gh-stat-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #cfcfd6;
+  padding: 6px 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.06);
+}
+
+.gh-stat-item:last-child {
+  border-bottom: none;
+}
+
+.gh-stat-key {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #8b8b94;
+}
+
+.gh-stat-val {
+  font-weight: 600;
+  color: #fff;
+}
+
+.platform-card-footer-tags {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.platform-pill {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #9999a3;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ── Heatmap Section Container ─────────────────────────────────────────── */
+.heatmap-card {
+  background: rgba(18, 18, 22, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 28px;
+  backdrop-filter: blur(12px);
+  position: relative;
+  overflow: hidden;
+}
+
+.heatmap-card-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.heatmap-title-block h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  margin-bottom: 4px;
+}
+
+.heatmap-title-block p {
+  font-size: 13px;
+  color: #8b8b94;
+  margin: 0;
+}
+
+/* Tab Switcher */
+.heatmap-tabs {
+  display: flex;
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 4px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.heatmap-tab-btn {
+  background: transparent;
+  border: none;
+  color: #8b8b94;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 7px 14px;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.heatmap-tab-btn:hover {
+  color: #ffffff;
+}
+
+.heatmap-tab-btn.active {
+  background: rgba(203, 11, 11, 0.8);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(203, 11, 11, 0.3);
+}
+
+.heatmap-tab-btn.active.tab-leetcode {
+  background: rgba(255, 161, 22, 0.85);
+  box-shadow: 0 4px 12px rgba(255, 161, 22, 0.3);
+}
+
+.heatmap-tab-btn.active.tab-github {
+  background: rgba(38, 166, 65, 0.85);
+  box-shadow: 0 4px 12px rgba(38, 166, 65, 0.3);
+}
+
+/* SVG Heatmap Wrapper */
+.heatmap-scroll-area {
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+.heatmap-scroll-area::-webkit-scrollbar {
+  height: 6px;
+}
+
+.heatmap-scroll-area::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 4px;
+}
+
+.heatmap-scroll-area::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+
+.heatmap-scroll-area::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.heatmap-svg {
+  display: block;
+  min-width: 780px;
+  width: 100%;
+  height: auto;
+  user-select: none;
+}
+
+/* Heatmap Text Labels */
+.heatmap-month-label {
+  fill: #7d7d87;
+  font-size: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.heatmap-day-label {
+  fill: #61616c;
+  font-size: 9px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Heatmap Rect Cells */
+.heatmap-cell {
+  transition: transform 0.15s ease, stroke 0.15s ease;
+  cursor: pointer;
+}
+
+.heatmap-cell:hover {
+  stroke: #ffffff;
+  stroke-width: 1.5px;
+}
+
+/* Heatmap Footer */
+.heatmap-card-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 12px;
+  color: #8b8b94;
+}
+
+.heatmap-stats-summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.heatmap-stats-summary i {
+  color: #00e6d3;
+}
+
+.heatmap-legend {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.legend-cells {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+}
+
+.legend-box {
+  width: 11px;
+  height: 11px;
+  border-radius: 2px;
+}
+
+/* Tooltip */
+.heatmap-tooltip {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+  background: rgba(10, 10, 14, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: #fff;
+  font-size: 12px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.8), 0 0 12px rgba(0, 230, 211, 0.15);
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+  transform: translate(-50%, -120%);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.tooltip-date {
+  color: #8b8b94;
+  font-size: 11px;
+  margin-bottom: 2px;
+}
+
+.tooltip-count {
+  font-weight: 700;
+  color: #fff;
+}
+
+.tooltip-details {
+  font-size: 11px;
+  color: #cfcfd6;
+  margin-top: 2px;
+}
+
+/* ── Monochrome (Black & White Mode) Overrides ─────────────────────────── */
+body.theme-bw .activity-metric-card:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 255, 255, 0.15);
+}
+
+body.theme-bw .activity-metric-card::before {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+}
+
+body.theme-bw .metric-icon-wrap {
+  color: #fff !important;
+}
+
+body.theme-bw .heatmap-tab-btn.active {
+  background: rgba(255, 255, 255, 0.85) !important;
+  color: #000 !important;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.25) !important;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .activity-metric-grid {
+    grid-template-columns: 1fr;
+  }
+  .activity-platforms-row {
+    grid-template-columns: 1fr;
+  }
+  .heatmap-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .heatmap-tabs {
+    width: 100%;
+    overflow-x: auto;
+  }
+}
+
