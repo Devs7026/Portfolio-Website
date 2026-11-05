@@ -411,12 +411,59 @@
   margin-bottom: 24px;
 }
 
+.heatmap-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
 .heatmap-title-block h3 {
   font-size: 20px;
   font-weight: 600;
   color: #ffffff;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  margin-bottom: 4px;
+  margin: 0;
+}
+
+.heatmap-sync-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #00e6d3;
+  background: rgba(0, 230, 211, 0.08);
+  border: 1px solid rgba(0, 230, 211, 0.25);
+  padding: 3px 9px;
+  border-radius: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+.heatmap-sync-badge.connected {
+  color: #ffa116;
+  background: rgba(255, 161, 22, 0.08);
+  border-color: rgba(255, 161, 22, 0.25);
+}
+
+.sync-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #00e6d3;
+  box-shadow: 0 0 6px #00e6d3;
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+.heatmap-sync-badge.connected .sync-dot {
+  background: #ffa116;
+  box-shadow: 0 0 6px #ffa116;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 0.45; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.2); }
 }
 
 .heatmap-title-block p {

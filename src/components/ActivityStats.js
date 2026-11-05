@@ -59,8 +59,9 @@ const ActivityStats = () => {
   const [statsData, setStatsData] = useState(initialStatsData);
   const [activeTab, setActiveTab] = useState('combined'); // 'combined' | 'leetcode' | 'github'
   const [tooltip, setTooltip] = useState({ visible: false, x: 0, y: 0, content: null });
+  const [isLiveSynced, setIsLiveSynced] = useState(false);
 
-  // Optional background fetch to update with live values if online
+  // Background fetch to update summary and calendar matrix with live data
   useEffect(() => {
     const controller = new AbortController();
 
@@ -81,24 +82,71 @@ const ActivityStats = () => {
         if (lcData || ghData) {
           setStatsData((prev) => {
             const updated = { ...prev };
-            if (lcData && lcData.totalSolved) {
-              updated.summary = {
-                ...updated.summary,
-                leetcodeSolved: lcData.totalSolved,
-                leetcodeEasy: lcData.easySolved || updated.summary.leetcodeEasy,
-                leetcodeMedium: lcData.mediumSolved || updated.summary.leetcodeMedium,
-                leetcodeHard: lcData.hardSolved || updated.summary.leetcodeHard,
-                totalSolved: (lcData.totalSolved || 500) + (updated.summary.hackerrankSolved || 178),
-              };
+            const updatedSummary = { ...prev.summary };
+            const updatedCalendar = { ...(prev.calendar || {}) };
+
+            // Update GitHub metrics and daily contribution counts
+            if (ghData) {
+              if (ghData.total && ghData.total.lastYear) {
+                updatedSummary.githubContributions = ghData.total.lastYear;
+              }
+              if (Array.isArray(ghData.contributions)) {
+                ghData.contributions.forEach((item) => {
+                  if (item && item.date) {
+                    const existing = updatedCalendar[item.date] || { github: 0, leetcode: 0, total: 0 };
+                    const ghCount = item.count || 0;
+                    updatedCalendar[item.date] = {
+                      ...existing,
+                      github: ghCount,
+                      total: ghCount + (existing.leetcode || 0),
+                    };
+                  }
+                });
+              }
             }
-            if (ghData && ghData.total && ghData.total.lastYear) {
-              updated.summary = {
-                ...updated.summary,
-                githubContributions: ghData.total.lastYear,
-              };
+
+            // Update LeetCode metrics and daily submission calendar
+            if (lcData) {
+              if (lcData.totalSolved) {
+                updatedSummary.leetcodeSolved = lcData.totalSolved;
+                updatedSummary.leetcodeEasy = lcData.easySolved || updatedSummary.leetcodeEasy;
+                updatedSummary.leetcodeMedium = lcData.mediumSolved || updatedSummary.leetcodeMedium;
+                updatedSummary.leetcodeHard = lcData.hardSolved || updatedSummary.leetcodeHard;
+                updatedSummary.totalSolved = (lcData.totalSolved || 500) + (updatedSummary.hackerrankSolved || 178);
+              }
+
+              if (lcData.submissionCalendar) {
+                let calObj = lcData.submissionCalendar;
+                if (typeof calObj === 'string') {
+                  try { calObj = JSON.parse(calObj); } catch (e) { calObj = {}; }
+                }
+                Object.entries(calObj).forEach(([ts, count]) => {
+                  const d = new Date(parseInt(ts, 10) * 1000);
+                  const dateStr = d.toISOString().split('T')[0];
+
+                  const existing = updatedCalendar[dateStr] || { github: 0, leetcode: 0, total: 0 };
+                  const lcCount = Number(count) || 0;
+                  updatedCalendar[dateStr] = {
+                    ...existing,
+                    leetcode: lcCount,
+                    total: (existing.github || 0) + lcCount,
+                  };
+                });
+              }
             }
+
+            // Recalculate active days from merged calendar
+            const activeDays = Object.values(updatedCalendar).filter((d) => (d.total || 0) > 0).length;
+            if (activeDays > 0) {
+              updatedSummary.activeDays = activeDays;
+            }
+
+            updated.summary = updatedSummary;
+            updated.calendar = updatedCalendar;
             return updated;
           });
+
+          setIsLiveSynced(true);
         }
       } catch (err) {
         // Fallback to bundled data gracefully
@@ -494,7 +542,13 @@ const ActivityStats = () => {
         <div className="heatmap-card">
           <div className="heatmap-card-header">
             <div className="heatmap-title-block">
-              <h3>Contribution &amp; Activity Calendar</h3>
+              <div className="heatmap-title-row">
+                <h3>Contribution &amp; Activity Calendar</h3>
+                <span className={`heatmap-sync-badge ${isLiveSynced ? 'live' : 'connected'}`}>
+                  <span className="sync-dot" />
+                  {isLiveSynced ? 'Live Synced' : 'Auto-Syncing'}
+                </span>
+              </div>
               <p>
                 Visualizing daily intensity and volume across the last 52 weeks (Nov 2025 – Nov 2026)
               </p>
