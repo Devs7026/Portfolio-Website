@@ -44,7 +44,7 @@ $ dev-srijit --overview
 ✔ Top 10 Nationwide: Deloitte USI Capstone 2026
 ✔ 1st Place Winner: Aptiv Ideathon
 ✔ Top 20 Finalist: Tally Code Brewers
-✔ 450+ Algorithmic Challenges Solved
+✔ 500+ Algorithmic Challenges Solved
 ✔ 365 Days Active LeetCode Streak
 $ echo $MOTTO
 "Turning Ideas into Scalable Impact ⚡"`
@@ -174,7 +174,7 @@ const DeveloperTerminal = () => {
                   <span className="c-output">✔ Top 10 Nationwide: Deloitte USI Capstone 2026</span>{'\n'}
                   <span className="c-output">✔ 1st Place Winner: Aptiv Ideathon</span>{'\n'}
                   <span className="c-output">✔ Top 20 Finalist: Tally Code Brewers</span>{'\n'}
-                  <span className="c-output">✔ 450+ Algorithmic Challenges Solved</span>{'\n'}
+                  <span className="c-output">✔ 500+ Algorithmic Challenges Solved</span>{'\n'}
                   <span className="c-output">✔ 365 Days Active LeetCode Streak</span>{'\n\n'}
                   <span className="c-prompt">$</span> <span className="c-cmd">echo $MOTTO</span>{'\n'}
                   <span className="c-accent">"Turning Ideas into Scalable Impact ⚡"</span>
@@ -193,7 +193,7 @@ const DeveloperTerminal = () => {
           </div>
           <div className="term-chip">
             <span className="term-chip-dot orange" />
-            <span>400+ LeetCode</span>
+            <span>500+ LeetCode</span>
           </div>
           <div className="term-chip">
             <span className="term-chip-dot cyan" />

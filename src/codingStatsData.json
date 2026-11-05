@@ -1,18 +1,23 @@
 {
   "summary": {
-    "totalSolved": 678,
-    "leetcodeSolved": 500,
-    "leetcodeEasy": 219,
+    "totalSolved": 679,
+    "leetcodeSolved": 501,
+    "leetcodeEasy": 220,
     "leetcodeMedium": 249,
     "leetcodeHard": 32,
     "hackerrankSolved": 178,
     "githubRepos": 29,
-    "githubContributions": 165,
-    "activeDays": 298,
+    "githubContributions": 168,
+    "activeDays": 299,
     "streak": "365+ Days",
-    "ranking": "218,441"
+    "ranking": "218,536"
   },
   "calendar": {
+    "2025-11-02": {
+      "github": 0,
+      "leetcode": 0,
+      "total": 0
+    },
     "2025-11-03": {
       "github": 0,
       "leetcode": 0,
@@ -1844,9 +1849,19 @@
       "total": 4
     },
     "2026-11-04": {
-      "github": 2,
-      "leetcode": 0,
+      "github": 4,
+      "leetcode": 1,
+      "total": 5
+    },
+    "2026-11-05": {
+      "github": 1,
+      "leetcode": 1,
       "total": 2
+    },
+    "2026-11-06": {
+      "github": 0,
+      "leetcode": 0,
+      "total": 0
     }
   }
 }

@@ -54,6 +54,30 @@ function getLevel(count, mode) {
   return 4;
 }
 
+// Resilient multi-endpoint fetch for LeetCode
+async function fetchLeetCode(signal) {
+  const endpoints = [
+    'https://leetcode-api-faisalshohag.vercel.app/7ICNbRHRSu',
+    'https://alfa-leetcode-api.onrender.com/userProfile/7ICNbRHRSu',
+  ];
+
+  for (const url of endpoints) {
+    try {
+      const res = await fetch(url, { signal });
+      if (res.ok) {
+        const json = await res.json();
+        if (json && (json.totalSolved || json.total_solved)) {
+          return json;
+        }
+      }
+    } catch (err) {
+      if (err.name === 'AbortError') throw err;
+      // continue to next endpoint on rate-limit or network error
+    }
+  }
+  return null;
+}
+
 const ActivityStats = () => {
   const prefersReduced = useReducedMotion();
   const [statsData, setStatsData] = useState(initialStatsData);
@@ -68,9 +92,7 @@ const ActivityStats = () => {
     async function fetchLiveMetrics() {
       try {
         const [lcRes, ghRes] = await Promise.allSettled([
-          fetch('https://alfa-leetcode-api.onrender.com/userProfile/7ICNbRHRSu', {
-            signal: controller.signal,
-          }).then((r) => (r.ok ? r.json() : null)),
+          fetchLeetCode(controller.signal),
           fetch('https://github-contributions-api.jogruber.de/v4/Devs7026?y=last', {
             signal: controller.signal,
           }).then((r) => (r.ok ? r.json() : null)),
@@ -107,16 +129,23 @@ const ActivityStats = () => {
 
             // Update LeetCode metrics and daily submission calendar
             if (lcData) {
-              if (lcData.totalSolved) {
-                updatedSummary.leetcodeSolved = lcData.totalSolved;
-                updatedSummary.leetcodeEasy = lcData.easySolved || updatedSummary.leetcodeEasy;
-                updatedSummary.leetcodeMedium = lcData.mediumSolved || updatedSummary.leetcodeMedium;
-                updatedSummary.leetcodeHard = lcData.hardSolved || updatedSummary.leetcodeHard;
-                updatedSummary.totalSolved = (lcData.totalSolved || 500) + (updatedSummary.hackerrankSolved || 178);
+              const solvedCount = lcData.totalSolved ?? lcData.total_solved;
+              if (solvedCount) {
+                updatedSummary.leetcodeSolved = solvedCount;
+                updatedSummary.leetcodeEasy = lcData.easySolved ?? lcData.easy_solved ?? updatedSummary.leetcodeEasy;
+                updatedSummary.leetcodeMedium = lcData.mediumSolved ?? lcData.medium_solved ?? updatedSummary.leetcodeMedium;
+                updatedSummary.leetcodeHard = lcData.hardSolved ?? lcData.hard_solved ?? updatedSummary.leetcodeHard;
+                updatedSummary.totalSolved = solvedCount + (updatedSummary.hackerrankSolved || 178);
+                if (lcData.ranking) {
+                  updatedSummary.ranking = typeof lcData.ranking === 'number'
+                    ? lcData.ranking.toLocaleString()
+                    : String(lcData.ranking);
+                }
               }
 
-              if (lcData.submissionCalendar) {
-                let calObj = lcData.submissionCalendar;
+              const cal = lcData.submissionCalendar;
+              if (cal) {
+                let calObj = cal;
                 if (typeof calObj === 'string') {
                   try { calObj = JSON.parse(calObj); } catch (e) { calObj = {}; }
                 }
@@ -293,7 +322,7 @@ const ActivityStats = () => {
             <div className="metric-info">
               <span className="metric-value">{summary.totalSolved}+</span>
               <span className="metric-label">Cumulative Questions Solved</span>
-              <span className="metric-subtext">500 LeetCode • 178 HackerRank</span>
+              <span className="metric-subtext">{summary.leetcodeSolved} LeetCode • {summary.hackerrankSolved} HackerRank</span>
             </div>
           </motion.div>
 
